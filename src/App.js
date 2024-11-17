@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
+import Navbar from './components/Navbar';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Research from './components/Research';
+import Education from './components/Education';
+import About from './components/About';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [nightMode, setNightMode] = useState(false);
+
+    const theme = createTheme({
+        palette: {
+            mode: nightMode ? 'dark' : 'light',
+            background: { default: nightMode ? '#121212' : '#f5f5f5' },
+        },
+    });
+
+    const toggleNightMode = () => setNightMode(!nightMode);
+
+    return (
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Navbar toggleNightMode={toggleNightMode} nightMode={nightMode} />
+            <About />
+            <Experience />
+            <Projects />
+            <Research />
+            <Education />
+        </ThemeProvider>
+    );
+};
 
 export default App;
