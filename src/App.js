@@ -27,8 +27,10 @@ const App = () => {
             <Particles />
             <CenteredName toggleNightMode={toggleNightMode} nightMode={nightMode} />
             {/* <Navbar toggleNightMode={toggleNightMode} nightMode={nightMode} /> */}
-            <Box sx={{ marginTop: '800px' , marginLeft: '250px', marginRight: '250px', position: 'relative', zIndex: 1 }}> {/* Adjust the value as needed */}
-                <About />
+            <Box sx={{  marginLeft: '300px', marginRight: '300px', position: 'relative', zIndex: 1 }}> {/* Adjust the value as needed */}
+            <About />
+            </Box>
+            <Box sx={{ marginTop: '100px' , marginLeft: '250px', marginRight: '250px', position: 'relative', zIndex: 1 }}> {/* Adjust the value as needed */}
                 <Projects />
                 <Experience />
                 <Research />

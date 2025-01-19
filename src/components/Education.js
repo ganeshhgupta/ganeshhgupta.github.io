@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, CardContent, Typography, Box, Collapse } from '@mui/material';
+import { Card, CardContent, Typography, Box, Collapse, Grid } from '@mui/material';
 import { Timeline, TimelineItem } from '@mui/lab';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
@@ -10,8 +10,55 @@ import SchoolIcon from '@mui/icons-material/School';
 
 const Education = () => {
   const education = [
-    { degree: "M.S. in Computer Science", institution: "University of Texas at Arlington", year: "2024", description: "This is where I completed my Master’s degree in Computer Science, focusing on advanced programming, machine learning, and data structures." },
-    { degree: "B.Tech in Information Technology", institution: "ABC University", year: "2020", description: "I completed my undergraduate degree in Information Technology with a focus on software development and database management." },
+    {
+      degree: "Master of Science in Computer Science",
+      institution: "University of Texas at Arlington",
+      year: "2024",
+      description: [
+        "Relevant Coursework",
+        [
+          "Data Analysis and Modeling Techniques",
+          "Design and Analysis of Algorithms",
+          "Artificial Intelligence I",
+          "Neural Networks",
+          "Machine Learning",
+          "Computer Vision",
+          "Cloud Computing and Big Data",
+          "Data Mining",
+          "Robotics",
+          "Master's Thesis II"
+        ]
+      ],
+      imageUrl: "/images/uta.png", // Replace with the actual image URL for UTA
+    },
+    {
+      degree: "Bachelor of Technology in Information Technology",
+      institution: "MCKV Institute of Engineering",
+      year: "2020",
+      description: [
+        "Relevant Coursework",
+        [
+          "Data Structures and Algorithms",
+"Computer Organization",
+"Operating System",
+"Discrete Mathematics",
+"Object Oriented Programming",
+"Design and Analysis of Algorithms",
+"Database Management System",
+"Computer Networks",
+"Software Engineering",
+"Compiler Design",
+"Artificial Intelligence",
+"Cryptography and Network Security",
+"Cloud Computing",
+"Internet Technology",
+"Computer Graphics",
+"E-Commerce",
+"Industrial Training",
+        ]
+      ],
+      imageUrl: "/images/mckvie.png", // Replace with the actual image URL for ABC University
+    },
   ];
 
   const [hoverIndex, setHoverIndex] = useState(null);
@@ -84,7 +131,7 @@ const Education = () => {
                     width: '50px',
                     height: '50px',
                     borderRadius: '50%',
-                    backgroundImage: `url(/images/university_logo.png)`, // Replace with actual logo
+                    backgroundImage: `url(${edu.imageUrl})`, // Use the specific image for each entry
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     marginRight: 2,
@@ -112,16 +159,18 @@ const Education = () => {
                     {edu.year}
                   </Typography>
                   <Collapse in={hoverIndex === index}>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        marginTop: 1,
-                        overflowWrap: 'break-word',
-                        whiteSpace: 'normal',
-                      }}
-                    >
-                      {edu.description}
+                    <Typography variant="h6" sx={{ marginTop: 2, marginBottom: 1, fontSize: '1rem' }}>
+                      {edu.description[0]} {/* "Relevant Coursework" heading */}
                     </Typography>
+                    <Grid container spacing={2}>
+                      {edu.description[1].map((course, courseIndex) => (
+                        <Grid item xs={4} key={courseIndex}>
+                          <ul style={{ fontSize: '0.9rem', paddingLeft: '20px' }}>
+                            <li style={{ fontSize: '0.9rem' }}>{course}</li>
+                          </ul>
+                        </Grid>
+                      ))}
+                    </Grid>
                   </Collapse>
                 </CardContent>
               </Card>

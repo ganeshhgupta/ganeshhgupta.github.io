@@ -1,0 +1,23 @@
+.about-container {
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Horizontally center the content */
+    justify-content: center; /* Vertically center the content */
+    height: 100vh; /* Full viewport height for centering in the middle */
+    box-sizing: border-box; /* Ensures padding is included in the height calculation */
+    padding-top: 40vh; /* Slight downward shift (adjust as needed) */
+}
+
+.about-paragraph {
+    font-family: "Raleway", serif;
+    font-weight: 200; /* Light font weight */
+    font-size: 1.20rem;
+    text-align: left; /* Ensure text aligns to the left */
+    margin: 0 auto; /* Centers the text horizontally */
+    overflow: hidden; /* Hides the content until it's typed */
+    letter-spacing: 0.08em; /* Adjust spacing between letters */
+    width: 80%; /* Ensures text spans the container's full width */
+    white-space: normal; /* Allows text to wrap onto new lines */
+    color: black; /* Text color set to black */
+    line-height: 1.50rem; /* Set line height equal to font size for alignment */
+}

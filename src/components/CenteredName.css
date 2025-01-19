@@ -4,7 +4,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: "Raleway", serif;
-  font-weight: 200; /* Normal font weight */
+  font-weight: 300; /* Normal font weight */
   font-size: 6rem;
   text-align: center;
   white-space: nowrap; /* Keeps the content on a single line */

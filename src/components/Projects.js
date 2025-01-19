@@ -55,10 +55,15 @@ const Projects = () => {
 
     return (
         <Box id="projects" sx={{ padding: 3 }}>
-            <Typography variant="h4" sx={{ 
-                marginBottom: 2,
-                fontFamily: '"Raleway", serif',
-                 }}>
+            <Typography 
+                variant="h4" 
+                sx={{ 
+                    marginBottom: 4,
+                    marginTop: 0,
+                    fontFamily: '"Raleway", serif',
+                    textAlign: 'center' // Center align the text
+                }}
+            >
                 Projects
             </Typography>
             <Grid 
@@ -78,7 +83,7 @@ const Projects = () => {
                         <Card
                             sx={{
                                 width: '100%',
-                                maxWidth: 400, // Adjusted width for a wider card
+                                maxWidth: 400,
                                 '&:hover': {
                                     transform: 'scale(1.05)',
                                     transition: 'transform 0.3s ease',
@@ -91,7 +96,7 @@ const Projects = () => {
                                 <CardMedia
                                     component="img"
                                     height="140"
-                                    image={project.image} // Image path
+                                    image={project.image}
                                     alt={project.title}
                                 />
                                 <CardContent>
