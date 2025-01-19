@@ -4,51 +4,51 @@ import { Card, CardContent, Typography, Grid, Box, CardMedia, CardActionArea } f
 const Projects = () => {
     const projects = [
         { 
-            title: "Portfolio Website", 
+            title: "Low Latency Motion Tracking using Vision Transformer", 
             description: "A React-based portfolio showcasing my work.", 
-            image: "1.png", // Path to image (you need to provide the image path)
+            image: "./images/1.png", // Path to image (you need to provide the image path)
             link: "http://localhost:3001/" 
         },
         { 
             title: "Portfolio Website", 
-            description: "A React-based portfolio showcasing my work.", 
-            image: "/images/portfolio.png", // Path to image (you need to provide the image path)
+            description: "Community Detection in Social Networks.", 
+            image: "./images/2.png", // Path to image (you need to provide the image path)
             link: "https://portfolio.com" 
         },
         { 
-            title: "Portfolio Website", 
+            title: "Caltech 256 Object Classifier", 
             description: "A React-based portfolio showcasing my work.", 
-            image: "/images/portfolio.png", // Path to image (you need to provide the image path)
+            image: "./images/3.png", // Path to image (you need to provide the image path)
             link: "https://portfolio.com" 
         },
         { 
-            title: "E-commerce App", 
-            description: "A full-stack MERN application for online shopping.", 
-            image: "/images/ecommerce.png", // Path to image
+            title: "Innovative Data Intelligence Research Lab Challenge", 
+            description: "Innovative Data Intelligence Research Lab Challenge.", 
+            image: "./images/4.png", // Path to image (you need to provide the image path)
             link: "https://ecommerce-app.com" 
         },
         { 
             title: "Weather Dashboard", 
-            description: "A web app to check weather updates globally.", 
-            image: "/images/weather.png", // Path to image
+            description: "Lane Detection System for Autonomous Driving.", 
+            image: "./images/5.png", // Path to image (you need to provide the image path)
             link: "https://weather-dashboard.com" 
         },
         { 
             title: "Blog Platform", 
             description: "A platform for users to create and share blog posts.", 
-            image: "/images/blog.png", // Path to image
+            image: "./images/6.png", // Path to image (you need to provide the image path)
             link: "https://blog-platform.com" 
         },
         { 
             title: "Task Manager", 
             description: "A task management app with to-do list functionality.", 
-            image: "/images/taskmanager.png", // Path to image
+            image: "./images/7.png", // Path to image (you need to provide the image path)
             link: "https://taskmanager.com" 
         },
         { 
             title: "Chat Application", 
             description: "Real-time chat app with messaging functionality.", 
-            image: "/images/chatapp.png", // Path to image
+            image: "./images/8.png", // Path to image (you need to provide the image path)
             link: "https://chatapp.com" 
         }
     ];
@@ -71,7 +71,7 @@ const Projects = () => {
                 }}
             >
                 {projects.map((project, index) => (
-                    <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+                    <Grid item xs={12} sm={4} md={4} lg={4} key={index}>
                         <Card
                             sx={{
                                 width: '100%',

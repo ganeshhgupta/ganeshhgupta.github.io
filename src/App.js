@@ -6,6 +6,8 @@ import Projects from './components/Projects';
 import Research from './components/Research';
 import Education from './components/Education';
 import About from './components/About';
+import Particles from './components/particle';
+import CenteredName from './components/CenteredName';
 
 const App = () => {
     const [nightMode, setNightMode] = useState(false);
@@ -22,6 +24,8 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
+            <Particles />
+            <CenteredName toggleNightMode={toggleNightMode} nightMode={nightMode} />
             <Navbar toggleNightMode={toggleNightMode} nightMode={nightMode} />
             <About />
             <Experience />
@@ -29,6 +33,7 @@ const App = () => {
             <Research />
             <Education />
         </ThemeProvider>
+
     );
 };
 

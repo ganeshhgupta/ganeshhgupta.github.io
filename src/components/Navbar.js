@@ -7,7 +7,7 @@ const Navbar = ({ toggleNightMode, nightMode }) => {
         <AppBar
             position="sticky"
             sx={{
-                backgroundColor: nightMode ? 'grey.800' : 'grey.300',
+                backgroundColor: nightMode ? 'black' : 'white',
                 color: nightMode ? 'white' : 'black',
                 boxShadow: 'none',
             }}
@@ -20,7 +20,7 @@ const Navbar = ({ toggleNightMode, nightMode }) => {
                     sx={{ flexGrow: 1, cursor: 'pointer', fontWeight: 'bold' }}
                     onClick={() => window.scrollTo(0, 0)}
                 >
-                    Ganesh Gupta
+                    Home
                 </Typography>
 
                 {/* Links */}

@@ -1,0 +1,51 @@
+.typewriter {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Raleway", serif;
+  font-weight: 200; /* Normal font weight */
+  font-size: 6rem;
+  text-align: center;
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Centers the text within the container */
+  overflow: hidden; /* Hides the content until it's typed */
+  border-right: 0.05em solid #222222; /* Make the cursor thinner */
+  letter-spacing: 0.1em; /* Adjust spacing between letters */
+  animation: typing 2.5s steps(40, end) forwards; /* Typing animation only */
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 40%;
+  }
+}
+
+/* The blinking cursor effect */
+.typewriter.blink {
+  animation: blink-caret 0.75s step-end infinite; /* Apply blinking only if needed */
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+/* Day mode styles */
+.typewriter.day {
+  color: #222222; /* Adjust color for day mode */
+}
+
+/* Night mode styles */
+.typewriter.night {
+  color: white; /* Adjust color for night mode */
+}
