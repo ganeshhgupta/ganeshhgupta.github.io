@@ -55,12 +55,15 @@ const Projects = () => {
 
     return (
         <Box id="projects" sx={{ padding: 3 }}>
-            <Typography variant="h4" sx={{ marginBottom: 2 }}>
+            <Typography variant="h4" sx={{ 
+                marginBottom: 2,
+                fontFamily: '"Raleway", serif',
+                 }}>
                 Projects
             </Typography>
             <Grid 
                 container 
-                spacing={3} 
+                spacing={4} 
                 sx={{
                     display: 'flex',
                     justifyContent: 'center',

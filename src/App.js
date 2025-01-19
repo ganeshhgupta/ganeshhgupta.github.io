@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
+import { ThemeProvider, createTheme, CssBaseline, Box } from '@mui/material';
 import Navbar from './components/Navbar';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
@@ -26,12 +26,14 @@ const App = () => {
             <CssBaseline />
             <Particles />
             <CenteredName toggleNightMode={toggleNightMode} nightMode={nightMode} />
-            <Navbar toggleNightMode={toggleNightMode} nightMode={nightMode} />
-            <About />
-            <Experience />
-            <Projects />
-            <Research />
-            <Education />
+            {/* <Navbar toggleNightMode={toggleNightMode} nightMode={nightMode} /> */}
+            <Box sx={{ marginTop: '800px' , marginLeft: '250px', marginRight: '250px', position: 'relative', zIndex: 1 }}> {/* Adjust the value as needed */}
+                <About />
+                <Projects />
+                <Experience />
+                <Research />
+                <Education />
+            </Box>
         </ThemeProvider>
 
     );
