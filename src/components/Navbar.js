@@ -1,46 +1,51 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Switch } from '@mui/material';
-import { Link } from 'react-scroll';
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 const Navbar = ({ toggleNightMode, nightMode }) => {
     return (
         <AppBar
             position="sticky"
             sx={{
-                backgroundColor: nightMode ? 'black' : 'white',
+                backgroundColor: nightMode ? '#000000' : 'white', // Explicit hex for black
                 color: nightMode ? 'white' : 'black',
                 boxShadow: 'none',
+                width: '100%', // Ensure it stretches full width
+                position: 'relative',
             }}
         >
             <Toolbar>
-                {/* Logo */}
+                {/* Home Link */}
                 <Typography
                     variant="h6"
                     component="div"
                     sx={{ flexGrow: 1, cursor: 'pointer', fontWeight: 'bold' }}
-                    onClick={() => window.scrollTo(0, 0)}
+                    onClick={() => scroll.scrollToTop()} // Scrolls to the top
                 >
                     Home
                 </Typography>
 
-                {/* Links */}
-                {['Experience', 'Projects', 'Research', 'Education', 'About'].map((section) => (
-                    <Button
+                {/* Section Links */}
+                {['Experience', 'Projects', 'Research', 'Education', 'About', 'Skills', 'Contact'].map((section) => (
+                    <Link
                         key={section}
-                        sx={{ color: nightMode ? 'white' : 'black', textTransform: 'capitalize' }}
-                        component={Link}
-                        to={section.toLowerCase()}
-                        smooth={true}
-                        duration={500}
+                        to={section.toLowerCase()} // Matches section IDs in App.js
+                        smooth={true} // Enables smooth scrolling
+                        duration={500} // Scrolling duration in ms
+                        offset={-70} // Adjust based on navbar height
                     >
-                        {section}
-                    </Button>
+                        <Button
+                            sx={{
+                                color: nightMode ? 'white' : 'black',
+                                textTransform: 'capitalize',
+                            }}
+                        >
+                            {section}
+                        </Button>
+                    </Link>
                 ))}
 
                 {/* Night Mode Toggle */}
-                <Typography variant="body2" sx={{ marginRight: 1 }}>
-                    Night Mode
-                </Typography>
                 <Switch checked={nightMode} onChange={toggleNightMode} />
             </Toolbar>
         </AppBar>

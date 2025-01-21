@@ -59,7 +59,6 @@ const Projects = () => {
                 variant="h4" 
                 sx={{ 
                     marginBottom: 4,
-                    marginTop: 0,
                     fontFamily: '"Raleway", serif',
                     textAlign: 'center' // Center align the text
                 }}

@@ -1,23 +1,37 @@
 .about-container {
-    display: flex; /* Enables flexbox */
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Horizontally center the content */
-    justify-content: center; /* Vertically center the content */
-    height: 100vh; /* Full viewport height for centering in the middle */
-    box-sizing: border-box; /* Ensures padding is included in the height calculation */
-    padding-top: 40vh; /* Slight downward shift (adjust as needed) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    padding-top: 40vh;  /* Adjust this to move the content down vertically */
+    padding-bottom: 50px; /* This adds padding between About and Projects, increase value as needed */
+    box-sizing: border-box;
+    transition: padding-bottom 0.5s ease;
 }
+
 
 .about-paragraph {
     font-family: "Raleway", serif;
-    font-weight: 200; /* Light font weight */
+    font-weight: 200;
     font-size: 1.20rem;
-    text-align: left; /* Ensure text aligns to the left */
-    margin: 0 auto; /* Centers the text horizontally */
-    overflow: hidden; /* Hides the content until it's typed */
-    letter-spacing: 0.08em; /* Adjust spacing between letters */
-    width: 80%; /* Ensures text spans the container's full width */
-    white-space: normal; /* Allows text to wrap onto new lines */
-    color: black; /* Text color set to black */
-    line-height: 1.50rem; /* Set line height equal to font size for alignment */
+    text-align: left;
+    margin: 0 auto;
+    overflow: hidden;
+    letter-spacing: 0.08em;
+    width: 80%;
+    white-space: normal;
+    line-height: 1.50rem;
+}
+
+.about-day {
+    color: #333333;
+}
+
+.about-night {
+    color: #ffffff;
+}
+
+.about-night .about-paragraph {
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8); /* Glow effect */
 }
