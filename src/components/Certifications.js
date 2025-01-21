@@ -4,34 +4,34 @@ import { Card, CardContent, Typography, Grid, Box, CardMedia, CardActionArea } f
 const Certifications = () => {
     const certifications = [
         { 
-            title: "Certified Kubernetes Administrator", 
-            issuedBy: "Linux Foundation", 
-            date: "March 2023", 
-            image: "./images/kubernetes.png" // Path to image (you need to provide the image)
+            title: "AWS Certified Developer", 
+            issuedBy: "Amazon Web Services (AWS)", 
+            date: "December 2024", 
+            image: "./images/aws-dva.png" // Path to image (you need to provide the image)
         },
         { 
-            title: "AWS Certified Solutions Architect – Associate", 
-            issuedBy: "Amazon Web Services", 
-            date: "January 2022", 
-            image: "./images/aws.png" // Path to image (you need to provide the image)
+            title: "Full Stack Java developer - Java + JSP + Restful WS + Spring", 
+            issuedBy: "Udemy", 
+            date: "March 2022", 
+            image: "./images/spring.png" // Path to image (you need to provide the image)
         },
         { 
-            title: "Google Cloud Certified – Professional Cloud Architect", 
-            issuedBy: "Google Cloud", 
-            date: "November 2021", 
-            image: "./images/gcp.png" // Path to image (you need to provide the image)
+            title: "TensorFlow Developer Certificate", 
+            issuedBy: "Google", 
+            date: "March 2022", 
+            image: "./images/tf-dev.png" // Path to image (you need to provide the image)
         },
         { 
-            title: "Certified Ethical Hacker", 
-            issuedBy: "EC-Council", 
-            date: "September 2020", 
-            image: "./images/ceh.png" // Path to image (you need to provide the image)
+            title: "The Complete Node.js Developer Course", 
+            issuedBy: "Udemy", 
+            date: "March 2021", 
+            image: "./images/nodejs.png" // Path to image (you need to provide the image)
         },
         { 
-            title: "Microsoft Certified: Azure Fundamentals", 
-            issuedBy: "Microsoft", 
-            date: "July 2020", 
-            image: "./images/azure.png" // Path to image (you need to provide the image)
+            title: "MongoDB - The Complete Developer's Guide", 
+            issuedBy: "Udemy", 
+            date: "October 2022", 
+            image: "./images/mongodb.png" // Path to image (you need to provide the image)
         },
         { 
             title: "CompTIA Security+", 
