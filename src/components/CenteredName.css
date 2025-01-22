@@ -1,18 +1,23 @@
 .typewriter {
   position: absolute;
-  top: 40%;
-  left: 50%;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%);
   font-family: "Raleway", serif;
   font-weight: 300; /* Normal font weight */
-  font-size: 6rem;
+  font-size: clamp(2rem, 5vw, 6rem); /* Responsive font size */
   text-align: center;
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Centers the text within the container */
   overflow: hidden; /* Hides the content until it's typed */
-  border-right: 0.025em solid #999999; /* Make the cursor thinner */
+  border-right: 0.025em solid #999999; /* Cursor appearance */
   letter-spacing: 0.1em; /* Adjust spacing between letters */
-  animation: typing 2.5s steps(40, end) forwards; /* Typing animation only */
+  animation: typing 2.5s steps(40, end) forwards; /* Typing animation */
+}
+
+/* Responsive styles for small screens */
+.typewriter.small-screen {
+  font-size: clamp(1.5rem, 6vw, 4rem); /* Smaller font for small devices */
 }
 
 /* The typing effect */
@@ -21,31 +26,37 @@
     width: 0;
   }
   to {
-    width: 40%;
+    width: 100%; /* Allow full width for the text */
   }
 }
 
 /* The blinking cursor effect */
-.typewriter.blink {
-  animation: blink-caret 0.75s step-end infinite; /* Apply blinking only if needed */
+.typewriter::after {
+  content: ""; /* Create the blinking cursor */
+  display: inline-block;
+  width: 0.1em;
+  height: 1em;
+  background: currentColor;
+  margin-left: 0.1em;
+  animation: blink-caret 0.75s step-end infinite;
 }
 
 @keyframes blink-caret {
   from,
   to {
-    border-color: transparent;
+    opacity: 0;
   }
   50% {
-    border-color: orange;
+    opacity: 1;
   }
 }
 
 /* Day mode styles */
 .typewriter.day {
-  color: #222222; /* Adjust color for day mode */
+  color: #222222; /* Text color for day mode */
 }
 
 /* Night mode styles */
 .typewriter.night {
-  color: white; /* Adjust color for night mode */
+  color: #ffffff; /* Text color for night mode */
 }

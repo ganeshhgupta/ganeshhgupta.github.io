@@ -40,7 +40,7 @@ const Footer = () => {
           </IconButton>
         </Tooltip>
         <Typography variant="body2">
-          <span>© {currentYear} Anusha Anand. All rights reserved.</span>
+          <span>© {currentYear} Ganesh Gupta. All rights reserved.</span>
         </Typography>
       </Container>
     </Box>
