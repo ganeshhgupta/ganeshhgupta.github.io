@@ -1,23 +1,18 @@
 .typewriter {
   position: absolute;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
+  top: 40%;
+  left: 50%;
   transform: translate(-50%, -50%);
   font-family: "Raleway", serif;
-  font-weight: 300; /* Normal font weight */
-  font-size: clamp(2rem, 5vw, 6rem); /* Responsive font size */
+  font-weight: 400; /* Normal font weight */
+  font-size: clamp(2rem, 8vw, 5rem); /* Adjusted font size to fit better */
   text-align: center;
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Centers the text within the container */
   overflow: hidden; /* Hides the content until it's typed */
-  border-right: 0.025em solid #999999; /* Cursor appearance */
-  letter-spacing: 0.1em; /* Adjust spacing between letters */
-  animation: typing 2.5s steps(40, end) forwards; /* Typing animation */
-}
-
-/* Responsive styles for small screens */
-.typewriter.small-screen {
-  font-size: clamp(1.5rem, 6vw, 4rem); /* Smaller font for small devices */
+  border-right: 0.025em solid #999999; /* Make the cursor thinner */
+  letter-spacing: 0.05em; /* Reduced spacing between letters */
+  animation: typing 2.5s steps(20, end) forwards; /* Adjusted steps for a smoother effect */
 }
 
 /* The typing effect */
@@ -26,37 +21,31 @@
     width: 0;
   }
   to {
-    width: 100%; /* Allow full width for the text */
+    width: 100%; /* Ensure the width covers the entire text */
   }
 }
 
 /* The blinking cursor effect */
-.typewriter::after {
-  content: ""; /* Create the blinking cursor */
-  display: inline-block;
-  width: 0.1em;
-  height: 1em;
-  background: currentColor;
-  margin-left: 0.1em;
-  animation: blink-caret 0.75s step-end infinite;
+.typewriter.blink {
+  animation: blink-caret 0.75s step-end infinite; /* Apply blinking only if needed */
 }
 
 @keyframes blink-caret {
   from,
   to {
-    opacity: 0;
+    border-color: transparent;
   }
   50% {
-    opacity: 1;
+    border-color: orange;
   }
 }
 
 /* Day mode styles */
 .typewriter.day {
-  color: #222222; /* Text color for day mode */
+  color: #222222; /* Adjust color for day mode */
 }
 
 /* Night mode styles */
 .typewriter.night {
-  color: #ffffff; /* Text color for night mode */
+  color: white; /* Adjust color for night mode */
 }
