@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     AppBar,
     Toolbar,
@@ -14,15 +14,39 @@ import {
 import { Link, animateScroll as scroll } from 'react-scroll';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import HomeIcon from '@mui/icons-material/Home'; // Import HomeIcon
 import { useMediaQuery } from '@mui/material';
 
 const Navbar = ({ toggleNightMode, nightMode }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [showNavbar, setShowNavbar] = useState(true); // State to track visibility
     const isSmallScreen = useMediaQuery('(max-width:600px)'); // Detect small screens
+    let lastScrollY = 0; // Variable to track scroll position
 
     const toggleDrawer = (open) => {
         setDrawerOpen(open);
     };
+
+    const handleScroll = () => {
+        // Check the scroll direction and show/hide navbar accordingly
+        if (window.scrollY < lastScrollY) {
+            // Scroll up - show navbar
+            setShowNavbar(true);
+        } else {
+            // Scroll down - hide navbar
+            setShowNavbar(false);
+        }
+        lastScrollY = window.scrollY; // Update last scroll position
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll); // Listen to scroll events
+
+        // Cleanup event listener on component unmount
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const renderLinks = () => (
         ['Experience', 'Projects', 'Research', 'Education', 'About', 'Skills', 'Contact'].map((section) => (
@@ -58,6 +82,8 @@ const Navbar = ({ toggleNightMode, nightMode }) => {
                     boxShadow: 'none',
                     width: '100%', // Ensure it stretches full width
                     position: 'relative',
+                    top: showNavbar ? 0 : '-64px', // Hide navbar when scrolling down
+                    transition: 'top 0.3s ease-in-out', // Swoop effect on scroll
                 }}
             >
                 <Toolbar>
@@ -73,21 +99,27 @@ const Navbar = ({ toggleNightMode, nightMode }) => {
                         </IconButton>
                     )}
 
-                    {/* Home Link */}
-                    <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{ flexGrow: 1, cursor: 'pointer', fontWeight: 'bold' }}
-                        onClick={() => scroll.scrollToTop()} // Scrolls to the top
+                    {/* Home Icon (instead of "Home") */}
+                    <IconButton
+                        color="inherit"
+                        onClick={() => scroll.scrollToTop()} // Scroll to the top when clicked
+                        sx={{ marginLeft: '8px' }}
                     >
-                        Home
-                    </Typography>
+                        <HomeIcon />
+                    </IconButton>
 
                     {/* Desktop Links */}
                     {!isSmallScreen && renderLinks()}
 
-                    {/* Night Mode Toggle */}
-                    <Switch checked={nightMode} onChange={toggleNightMode} />
+                    {/* Night Mode Toggle (Shifted to the top right) */}
+                    <Switch
+                        checked={nightMode}
+                        onChange={toggleNightMode}
+                        sx={{
+                            position: 'absolute',
+                            right: 16, // Align to the top-right
+                        }}
+                    />
                 </Toolbar>
             </AppBar>
 

@@ -12,7 +12,7 @@
   overflow: hidden; /* Hides the content until it's typed */
   border-right: 0.025em solid #999999; /* Make the cursor thinner */
   letter-spacing: 0.05em; /* Reduced spacing between letters */
-  animation: typing 2.5s steps(20, end) forwards; /* Adjusted steps for a smoother effect */
+  animation: typing 2.5s steps(20, end) forwards, disappear 0s 2.5s forwards; /* Typing and then disappearing cursor */
 }
 
 /* The typing effect */
@@ -25,27 +25,20 @@
   }
 }
 
-/* The blinking cursor effect */
-.typewriter.blink {
-  animation: blink-caret 0.75s step-end infinite; /* Apply blinking only if needed */
-}
-
-@keyframes blink-caret {
-  from,
+/* Make the cursor disappear after typing */
+@keyframes disappear {
   to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: orange;
+    border-color: transparent; /* Hide the cursor */
   }
 }
 
 /* Day mode styles */
-.typewriter.day {
-  color: #222222; /* Adjust color for day mode */
+.about-day {
+  color: #222222; /* Normal text color for day mode */
 }
 
 /* Night mode styles */
-.typewriter.night {
-  color: white; /* Adjust color for night mode */
+.about-night {
+  color: white; /* Text color for night mode */
 }
+
