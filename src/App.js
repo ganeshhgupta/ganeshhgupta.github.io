@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider, createTheme, CssBaseline, Box, useMediaQuery } from '@mui/material';
 import Navbar from './components/Navbar';
 import Experience from './components/Experience';
@@ -14,10 +14,11 @@ import Skills from './components/Skills';
 import Footer from './components/Footer';
 
 const App = () => {
-    const [nightMode, setNightMode] = useState(false);
-    const [startTypingAbout, setStartTypingAbout] = useState(false);
-    const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const [nightMode, setNightMode] = useState(false); // Handles theme mode
+    const [startTypingAbout, setStartTypingAbout] = useState(false); // Triggers the typing effect for About
+    const isSmallScreen = useMediaQuery('(max-width:600px)'); // Responsive check for smaller screens
 
+    // Define MUI theme based on the night mode state
     const theme = createTheme({
         palette: {
             mode: nightMode ? 'dark' : 'light',
@@ -25,23 +26,40 @@ const App = () => {
         },
     });
 
-    const toggleNightMode = () => setNightMode(!nightMode);
+    const toggleNightMode = () => setNightMode(!nightMode); // Toggles between light and dark mode
 
-    React.useEffect(() => {
-        const timer = setTimeout(() => {
-            setStartTypingAbout(true);
-        }, 3000); // 3 seconds delay
-        return () => clearTimeout(timer);
+    useEffect(() => {
+        // Triggers typing animation in About section after a delay
+        const timer = setTimeout(() => setStartTypingAbout(true), 3000); // 3 seconds delay
+        return () => clearTimeout(timer); // Cleanup timer
     }, []);
 
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Navbar toggleNightMode={toggleNightMode} nightMode={nightMode} isSmallScreen={isSmallScreen} />
-            <Particle toggleNightMode={toggleNightMode} nightMode={nightMode} isSmallScreen={isSmallScreen} />
-            <CenteredName toggleNightMode={toggleNightMode} nightMode={nightMode} isSmallScreen={isSmallScreen} />
+            <CssBaseline /> {/* Normalizes styles for consistent cross-browser appearance */}
+            
+            {/* Navbar with Night Mode Toggle */}
+            <Navbar 
+                toggleNightMode={toggleNightMode} 
+                nightMode={nightMode} 
+                isSmallScreen={isSmallScreen} 
+            />
+            
+            {/* Particle Background */}
+            <Particle 
+                toggleNightMode={toggleNightMode} 
+                nightMode={nightMode} 
+                isSmallScreen={isSmallScreen} 
+            />
+            
+            {/* Centered Name Section */}
+            <CenteredName 
+                toggleNightMode={toggleNightMode} 
+                nightMode={nightMode} 
+                isSmallScreen={isSmallScreen} 
+            />
 
-            {/* Responsive container for sections */}
+            {/* Main Content Sections */}
             <Box
                 sx={{
                     marginX: isSmallScreen ? '16px' : '250px',
@@ -57,14 +75,17 @@ const App = () => {
                         isSmallScreen={isSmallScreen}
                     />
                 </Box>
+
                 <Box id="projects" sx={{ marginBottom: '32px' }}>
                     <Projects isSmallScreen={isSmallScreen} />
                 </Box>
+
                 <Box id="skills" sx={{ marginBottom: '32px' }}>
                     <Skills isSmallScreen={isSmallScreen} />
                 </Box>
             </Box>
 
+            {/* Secondary Content Sections */}
             <Box
                 sx={{
                     marginX: isSmallScreen ? '16px' : '250px',
@@ -75,17 +96,23 @@ const App = () => {
                 <Box id="experience" sx={{ marginBottom: '32px' }}>
                     <Experience isSmallScreen={isSmallScreen} />
                 </Box>
+
                 <Box id="research" sx={{ marginBottom: '32px' }}>
                     <Research isSmallScreen={isSmallScreen} />
                 </Box>
+
                 <Box id="education" sx={{ marginBottom: '32px' }}>
                     <Education isSmallScreen={isSmallScreen} />
                 </Box>
+
                 <Certifications isSmallScreen={isSmallScreen} />
+
                 <Box id="contact" sx={{ marginBottom: '32px' }}>
                     <Contact isSmallScreen={isSmallScreen} />
                 </Box>
             </Box>
+
+            {/* Footer */}
             <Footer isSmallScreen={isSmallScreen} />
         </ThemeProvider>
     );
