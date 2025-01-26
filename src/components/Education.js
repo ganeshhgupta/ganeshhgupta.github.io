@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import { Card, CardContent, Typography, Box, Collapse, Grid } from '@mui/material';
 import { Timeline, TimelineItem } from '@mui/lab';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
@@ -8,7 +8,7 @@ import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import SchoolIcon from '@mui/icons-material/School';
 
-const Education = () => {
+const Education = ({ nightMode }) => {
   const education = [
     {
       degree: "Master of Science in Computer Science",
@@ -39,25 +39,25 @@ const Education = () => {
         "Relevant Coursework",
         [
           "Data Structures and Algorithms",
-"Computer Organization",
-"Operating System",
-"Discrete Mathematics",
-"Object Oriented Programming",
-"Design and Analysis of Algorithms",
-"Database Management System",
-"Computer Networks",
-"Software Engineering",
-"Compiler Design",
-"Artificial Intelligence",
-"Cryptography and Network Security",
-"Cloud Computing",
-"Internet Technology",
-"Computer Graphics",
-"E-Commerce",
-"Industrial Training",
+          "Computer Organization",
+          "Operating System",
+          "Discrete Mathematics",
+          "Object Oriented Programming",
+          "Design and Analysis of Algorithms",
+          "Database Management System",
+          "Computer Networks",
+          "Software Engineering",
+          "Compiler Design",
+          "Artificial Intelligence",
+          "Cryptography and Network Security",
+          "Cloud Computing",
+          "Internet Technology",
+          "Computer Graphics",
+          "E-Commerce",
+          "Industrial Training",
         ]
       ],
-      imageUrl: "/images/mckvie.png", // Replace with the actual image URL for ABC University
+      imageUrl: "/images/mckvie.png", // Replace with the actual image URL for MCKV Institute
     },
   ];
 
@@ -67,11 +67,11 @@ const Education = () => {
     <Box
       id="education"
       sx={{
-        padding: 5,
+        padding: { xs: 3, sm: 5 }, // Responsive padding
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        marginTop: 4, // Adds space between sections
+        marginTop: 4,
       }}
     >
       <Typography
@@ -80,6 +80,7 @@ const Education = () => {
           marginBottom: 2,
           textAlign: 'center',
           fontFamily: '"Raleway", serif',  // Applying Raleway font
+          fontSize: { xs: '1.8rem', sm: '2.5rem' }, // Responsive font size
         }}
       >
         Education
@@ -109,7 +110,7 @@ const Education = () => {
             >
               <Card
                 sx={{
-                  width: '700px',
+                  width: { xs: '100%', sm: '700px' }, // Full width on mobile, fixed width on larger screens
                   marginBottom: 2,
                   transition: 'transform 0.3s ease-in-out, height 0.3s ease-in-out',
                   transform: hoverIndex === index ? 'scale(1.05)' : 'scale(1)',
@@ -117,7 +118,7 @@ const Education = () => {
                   overflow: 'hidden',
                   backgroundColor: hoverIndex === index ? 'grey.200' : 'grey.100',
                   display: 'flex',
-                  flexDirection: 'row',
+                  flexDirection: { xs: 'column', sm: 'row' }, // Stack content vertically on mobile
                   alignItems: 'center',
                   minHeight: '150px',
                   height: hoverIndex === index ? 'auto' : '120px',
@@ -134,7 +135,8 @@ const Education = () => {
                     backgroundImage: `url(${edu.imageUrl})`, // Use the specific image for each entry
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    marginRight: 2,
+                    marginBottom: { xs: 2, sm: 0 }, // Margin for mobile devices
+                    marginRight: { sm: 2 }, // Margin for larger screens
                   }}
                 />
                 <CardContent
@@ -164,7 +166,7 @@ const Education = () => {
                     </Typography>
                     <Grid container spacing={2}>
                       {edu.description[1].map((course, courseIndex) => (
-                        <Grid item xs={4} key={courseIndex}>
+                        <Grid item xs={12} sm={4} key={courseIndex}> {/* Full width on small screens */}
                           <ul style={{ fontSize: '0.9rem', paddingLeft: '20px' }}>
                             <li style={{ fontSize: '0.9rem' }}>{course}</li>
                           </ul>
