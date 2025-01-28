@@ -75,15 +75,14 @@ const Navbar = ({ toggleNightMode, nightMode }) => {
     return (
         <>
             <AppBar
-                position="sticky"
+                position="fixed" // Keep the navbar fixed on the screen
                 sx={{
                     backgroundColor: nightMode ? '#000000' : 'white', // Explicit hex for black
                     color: nightMode ? 'white' : 'black',
                     boxShadow: 'none',
                     width: '100%', // Ensure it stretches full width
-                    position: 'relative',
-                    top: showNavbar ? 0 : '-64px', // Hide navbar when scrolling down
-                    transition: 'top 0.3s ease-in-out', // Swoop effect on scroll
+                    top: showNavbar ? '0px' : '-64px', // Slide navbar up or down
+                    transition: 'top 0.5s ease-in-out', // Smooth sliding effect
                 }}
             >
                 <Toolbar>
@@ -132,6 +131,7 @@ const Navbar = ({ toggleNightMode, nightMode }) => {
                     sx: {
                         backgroundColor: nightMode ? '#121212' : 'white',
                         color: nightMode ? 'white' : 'black',
+                        width: '150px',
                     },
                 }}
             >
@@ -154,7 +154,7 @@ const Navbar = ({ toggleNightMode, nightMode }) => {
                                 <ListItemText
                                     primary={section}
                                     primaryTypographyProps={{
-                                        sx: { textAlign: 'center', fontWeight: 'bold' },
+                                        sx: { textAlign: 'left', fontFamily: '"Raleway", serif' },
                                     }}
                                 />
                             </Link>

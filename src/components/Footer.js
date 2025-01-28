@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography, Box, IconButton, Tooltip } from '@mui/material';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
-const Footer = () => {
+const Footer = ({nightMode}) => {
   const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
@@ -12,8 +12,8 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        backgroundColor: 'rgba(239, 239, 240, 1)',
-        color: '#333',
+        backgroundColor: nightMode ? "text.200" : 'text.100',
+        color: nightMode ? "text.200" : 'text.100',
         padding: '20px 0',
         textAlign: 'center',
         position: 'relative',

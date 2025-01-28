@@ -1,49 +1,64 @@
 import React, { useState, useEffect } from "react";
-import "./About.css";
 
-function About({ isNightMode, startTyping }) {
+function About({ nightMode, startTyping }) {
   const [typedText, setTypedText] = useState('');
-  const txt =
-    'A  Full-Stack Developer with 3+ years of experience in building scalable, enterprise-level applications in Java, Python, SQL, and AWS. Presently, as a Masters student in Computer Science at UT Arlington, mentoring as a Graduate Teaching Assistant while researching Vision Transformers for motion detection. My passion for problem-solving, leadership, and innovation drives me to deliver impactful solutions in any project.';
-  const speed = 0.1; // Typing speed
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  const txt = 'Full-Stack Developer with 3+ years of experience in building scalable, enterprise-level applications in Java, Python, SQL, and AWS, and formulating automation tools to streamline workflows. Presently, pursing Masters in Computer Science at UT Arlington (thesis) with a research focus on using Histogram of Gradients from Event-Based Cameras for Motion Detection by Vision Transformers, while mentoring as a Graduate Teaching Assistant. I like to build things, solve real-world problems, find the most efficient way to get things done, and channelize technology for humans to have a better time on this planet. Scroll Down :)';
 
   useEffect(() => {
-    if (!startTyping) return;  // Don't start typing until startTyping is true
+    if (!startTyping || currentIndex >= txt.length) return;
 
-    let i = 0;
-    let sentenceIndex = 0;
-    let timeoutId;
-    const sentences = txt.split(/(?<=\.)/); // Split by period but keep the period
-
-    const typeWriter = () => {
-      if (i < sentences[sentenceIndex].length) {
-        setTypedText((prevText) => prevText + sentences[sentenceIndex].charAt(i));
-        i++;
-        timeoutId = setTimeout(typeWriter, speed);
-      } else {
-        // After a sentence finishes typing, move to the next sentence with a line break
-        if (sentenceIndex < sentences.length - 1) {
-          setTypedText((prevText) => prevText + "<br /><br />"); // Add a line break after each sentence
-          sentenceIndex++;
-          i = 0; // Reset the character index for the next sentence
-          timeoutId = setTimeout(typeWriter, speed);
+    const typingInterval = setInterval(() => {
+      setCurrentIndex(prev => {
+        if (prev >= txt.length) {
+          clearInterval(typingInterval);
+          return prev;
         }
-      }
-    };
+        return prev + 1;
+      });
+      setTypedText(txt.slice(0, currentIndex + 1));
+    }, 30); // Adjust timing here for faster/slower typing
 
-    // Start typing effect
-    typeWriter();
+    return () => clearInterval(typingInterval);
+  }, [startTyping, currentIndex]);
 
-    // Cleanup on component unmount to avoid setting state on an unmounted component
-    return () => clearTimeout(timeoutId);
-  }, [startTyping]); // Run the typing effect once when startTyping becomes true
+  const containerStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    height: 'auto',
+    paddingTop: '45vh',
+    paddingBottom: '50px',
+    boxSizing: 'border-box',
+    transition: 'padding-bottom 0.5s ease',
+  };
+
+  const textStyle = {
+    fontFamily: '"Raleway", serif',
+    fontWeight: 500,
+    fontSize: '1.0rem',
+    textAlign: 'left',
+    margin: '0 auto',
+    overflow: 'hidden',
+    letterSpacing: '0.08em',
+    width: '80%',
+    whiteSpace: 'pre-wrap',
+    lineHeight: '1.50rem',
+    color: nightMode ? '#ffffff' : '#000000',
+    textShadow: nightMode ? '0px 0px 8px rgba(255, 255, 255, 0.3)' : 'none',
+    transition: 'color 0.3s ease',
+  };
+
+  // Format text with line breaks after each sentence
+  const formattedText = typedText.replace(/\. /g, '.\n\n');
 
   return (
-    <div className={`about-container ${isNightMode ? "about-night" : "about-day"}`}>
-      <div
-        className="about-paragraph"
-        dangerouslySetInnerHTML={{ __html: typedText }} // Render the HTML with line breaks
-      />
+    <div style={containerStyle}>
+      <div style={textStyle}>
+        {formattedText}
+      </div>
     </div>
   );
 }

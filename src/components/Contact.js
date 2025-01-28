@@ -44,14 +44,13 @@ const Contact = () => {
           <Card>
             <CardContent>
               <Typography variant="body1">
-                If you’re interested in collaborating or have any questions about my work, please don’t hesitate to reach out. I am always open to new opportunities and connections.
-              </Typography>
+                Feel free to reach out if you're interested in collaborating or have any questions about my work. Let’s build something amazing together. </Typography>
             </CardContent>
           </Card>
           <Card>
             <CardContent>
               <Typography variant="body1">
-                Feel free to connect with me via these channels
+                Feel free to connect.
               </Typography>
               <Box alignItems="center" sx={{ display: 'flex', gap: 2, marginTop: '10px', alignItems: 'center', justifyContent: 'center' }}>
                 <Tooltip title="Email" arrow>

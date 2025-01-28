@@ -13,7 +13,7 @@ const Education = ({ nightMode }) => {
     {
       degree: "Master of Science in Computer Science",
       institution: "University of Texas at Arlington",
-      year: "2024",
+      year: "2025",
       description: [
         "Relevant Coursework",
         [
@@ -116,7 +116,7 @@ const Education = ({ nightMode }) => {
                   transform: hoverIndex === index ? 'scale(1.05)' : 'scale(1)',
                   cursor: 'pointer',
                   overflow: 'hidden',
-                  backgroundColor: hoverIndex === index ? 'grey.200' : 'grey.100',
+                  backgroundColor: nightMode ? "text.200" : 'text.100',
                   display: 'flex',
                   flexDirection: { xs: 'column', sm: 'row' }, // Stack content vertically on mobile
                   alignItems: 'center',
