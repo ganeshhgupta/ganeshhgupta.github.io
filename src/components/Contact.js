@@ -44,13 +44,7 @@ const Contact = () => {
           <Card>
             <CardContent>
               <Typography variant="body1">
-                Feel free to reach out if you're interested in collaborating or have any questions about my work. Let’s build something amazing together. </Typography>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent>
-              <Typography variant="body1">
-                Feel free to connect.
+                Feel free to reach out if you're interested in collaborating or have any questions about my work. <br/> Let’s build something amazing together.
               </Typography>
               <Box alignItems="center" sx={{ display: 'flex', gap: 2, marginTop: '10px', alignItems: 'center', justifyContent: 'center' }}>
                 <Tooltip title="Email" arrow>
