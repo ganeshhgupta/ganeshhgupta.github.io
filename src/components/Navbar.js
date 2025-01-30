@@ -63,6 +63,7 @@ const Navbar = ({ toggleNightMode, nightMode }) => {
                         textTransform: 'capitalize',
                         display: 'block', // For better alignment in the drawer
                         margin: isSmallScreen ? '8px 0' : '0 8px',
+                        fontFamily: '"Raleway", serif'
                     }}
                     onClick={() => setDrawerOpen(false)} // Close drawer after clicking
                 >
@@ -149,7 +150,7 @@ const Navbar = ({ toggleNightMode, nightMode }) => {
                                 smooth={true}
                                 duration={500}
                                 offset={-70}
-                                style={{ width: '100%', textDecoration: 'none' }}
+                                style={{ width: '100%', textDecoration: 'none' , fontFamily: '"Raleway", serif'}}
                             >
                                 <ListItemText
                                     primary={section}

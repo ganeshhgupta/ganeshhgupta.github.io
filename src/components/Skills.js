@@ -35,7 +35,7 @@ const skillsByCategory = {
     { icon: <img src="https://www.portaone.com/wp-content/uploads/2022/09/Logo-Oracle-1.webp" alt="Oracle" width={40} height={40} />, name: 'Oracle', isCustom: true, iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmLME0hpAJOqBGhaVjcgkk8hIKS3S4GAqrLg&s' },
     { icon: <img src="https://banner2.cleanpng.com/20180704/ylc/kisspng-mysql-database-computer-servers-microsoft-sql-serv-laxyo-solution-soft-pvt-ltd-5b3d2044b74d39.1344207915307326127508.jpg" alt="MySQL" width={40} height={40} />, name: 'MySQL', isCustom: true, iconUrl: 'https://banner2.cleanpng.com/20180704/ylc/kisspng-mysql-database-computer-servers-microsoft-sql-serv-laxyo-solution-soft-pvt-ltd-5b3d2044b74d39.1344207915307326127508.jpg' },
   ],
-  AI: [
+  "Artificial Intelligence / Automation": [
 
     { icon: <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIbNSol2KPLUo_aGSrDdm3Hg_EA07AijCvG7XWb47PsAYqv8NkYDx-VAHtftGlOvUXz1o&usqp=CAU" alt="OpenCV" width={40} height={40} />, name: 'OpenCV', isCustom: true, iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIbNSol2KPLUo_aGSrDdm3Hg_EA07AijCvG7XWb47PsAYqv8NkYDx-VAHtftGlOvUXz1o&usqp=CAU' },
     { icon: <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Keras_logo.svg/2048px-Keras_logo.svg.png" alt="Keras" width={40} height={40} />, name: 'Keras', isCustom: true, iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Keras_logo.svg/2048px-Keras_logo.svg.png' },
@@ -43,7 +43,7 @@ const skillsByCategory = {
     { icon: <img src="https://resize.latenode.com/cdn-cgi/image/width=960,format=auto,fit=scale-down/https://cdn.prod.website-files.com/62c40e4513da320b60f32941/66a8c8f98dad82efb9a4e315_%D0%A1%D0%9C%D0%98%20(5).jpg  " alt="ResNet" width={40} height={40} />, name: 'ResNet', isCustom: true, iconUrl: 'https://resize.latenode.com/cdn-cgi/image/width=960,format=auto,fit=scale-down/https://cdn.prod.website-files.com/62c40e4513da320b60f32941/66a8c8f98dad82efb9a4e315_%D0%A1%D0%9C%D0%98%20(5).jpg' },
     { icon: <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv5hYcB6zTZFSCD83KLGlVJpkcRdmmfmqy9w&s" alt="Vision Transformers" width={40} height={40} />, name: 'Vision Transformers', isCustom: true, iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv5hYcB6zTZFSCD83KLGlVJpkcRdmmfmqy9w&s' },
     { icon: <img src="https://agile-systems.de/wp-content/uploads/2024/03/LangChain-Logo.png" alt="Langchain" width={40} height={40} />, name: 'Langchain', isCustom: true, iconUrl: 'https://agile-systems.de/wp-content/uploads/2024/03/LangChain-Logo.png' },
-    { icon: <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.png" alt="Hugging Face" width={40} height={40} />, name: 'Hugging Face', isCustom: true, iconUrl: 'https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.png' },
+    { icon: <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ80zg_RKN4w3BXlMnOwj4evR9JzAjfV73KHQ&s" alt="Hugging Face" width={40} height={40} />, name: 'Hugging Face', isCustom: true, iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ80zg_RKN4w3BXlMnOwj4evR9JzAjfV73KHQ&s' },
     { icon: <img src="https://media.licdn.com/dms/image/v2/D4E12AQGdFFJ5BPQMfQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1722702083011?e=2147483647&v=beta&t=d3-U8R5_ZIOw5Urpn9WdD48d9kq0Zh4z2g2aKhQ2kVE" alt="RAG" width={40} height={40} />, name: 'RAG', isCustom: true, iconUrl: 'https://media.licdn.com/dms/image/v2/D4E12AQGdFFJ5BPQMfQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1722702083011?e=2147483647&v=beta&t=d3-U8R5_ZIOw5Urpn9WdD48d9kq0Zh4z2g2aKhQ2kVE' },
     { icon: <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Selenium_Logo.png/1200px-Selenium_Logo.png" alt="Selenium" width={40} height={40} />, name: 'Selenium', isCustom: true, iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Selenium_Logo.png/1200px-Selenium_Logo.png' },
     { icon: <img src="https://logosandtypes.com/wp-content/uploads/2020/07/katalon-old.png" alt="Katalon" width={40} height={40} />, name: 'Katalon', isCustom: true, iconUrl: 'https://logosandtypes.com/wp-content/uploads/2020/07/katalon-old.png' },
@@ -60,9 +60,19 @@ const Skills = ({ nightMode }) => {
         color: nightMode ? "text.200" : 'text.100',
       }}
     >
+      <Typography
+              variant="h4"
+              sx={{
+                marginBottom: 2,
+                textAlign: 'center',
+                fontFamily: '"Raleway", serif',
+              }}
+            >
+              Professional Skills
+            </Typography>
       {Object.keys(skillsByCategory).map((category) => (
         <Box key={category}>
-          <Typography variant="h5" sx={{ marginBottom: 2 , textAlign: 'center', padding: '2'}}>
+          <Typography variant="h5" sx={{ marginBottom: 2 , textAlign: 'center', padding: '20px 0', fontFamily: '"Raleway", serif'}}>
             {category}
           </Typography>
           <Grid container spacing={2} justifyContent="center">

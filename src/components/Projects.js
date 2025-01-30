@@ -4,50 +4,50 @@ import { Card, CardContent, Typography, Grid, Box, CardMedia, CardActionArea } f
 const Projects = () => {
     const projects = [
         { 
-            title: "Low Latency Motion Tracking using Vision Transformer", 
-            description: "A React-based portfolio showcasing my work.", 
+            title: "Low Latency Motion Tracking using Vision Transformer : Thesis", 
+            description: "Vision Transformers have revolutionized the field of computer vision by applying the self-attention mechanism to image recognition tasks. This project aims to enhance ViT's performance by incorporating HOG features, which are known for their ability to capture shape and appearance information through gradient distributions.", 
             image: "./images/1.png", 
-            link: "http://localhost:3001/" 
+            link: "https://github.com/ganeshhgupta/HoG-ViT" 
         },
         { 
-            title: "Community Detection in Social Networks", 
+            title: "Community Detection in Social Networks : Big Data", 
             description: "Architected a Map-Reduce program to partition a directed graph into K clusters using multi-source BFS, optimizing proximity-based grouping through iterative propagation. Utilized RDDs in Apache Spark SQL to calculate neighbors and group the nodes accordingly.", 
             image: "./images/2.png", 
             link: "https://github.com/ganeshhgupta/CCBD" 
         },
         { 
-            title: "Caltech 256 Object Classifier", 
+            title: "Caltech 256 Object Classifier : ResNet50 : UTA Datathon ", 
             description: "A React-based portfolio showcasing my work.", 
             image: "./images/3.png", 
             link: "https://portfolio.com" 
         },
         { 
-            title: "Innovative Data Intelligence Research Lab Challenge", 
-            description: "Innovative Data Intelligence Research Lab Challenge.", 
+            title: "Twitter Sentiment Analysis using BERT : Innovative Data Intelligence Research Lab Challenge ", 
+            description: "This project leverages the BERT (Bidirectional Encoder Representations from Transformers) model to analyze and classify sentiment in Twitter data. By fine-tuning BERT for natural language understanding, the system is capable of accurately detecting positive, negative, or neutral sentiments in tweets, even those with slang, abbreviations, or informal language. The model is trained on a large corpus of labeled data to ensure high accuracy and is designed to scale, processing large volumes of real-time Twitter data for sentiment trends and public opinion analysis.", 
             image: "./images/4.png", 
-            link: "https://ecommerce-app.com" 
+            link: "https://github.com/ganeshhgupta/Twitter-Sentiment-Analysis" 
         },
         { 
-            title: "Weather Dashboard", 
-            description: "Lane Detection System for Autonomous Driving.", 
+            title: "Lane Detection System for Autonomous Driving : UNet, Yolo Panoptic", 
+            description: "This project focuses on improving lane detection capabilities in challenging driving conditions such as low light and poor weather. By leveraging advanced models like UNet for semantic segmentation and Yolo Panoptic for object detection, the system can more accurately identify and track lane markings, ensuring safer navigation in environments with limited visibility, such as fog, rain, or nighttime driving. The combination of these models allows for real-time processing and higher reliability under adverse conditions.", 
             image: "./images/5.png", 
             link: "https://weather-dashboard.com" 
         },
         { 
-            title: "Blog Platform", 
-            description: "A platform for users to create and share blog posts.", 
+            title: "Emotion Detection using Haar Cascades Classifier : OpenCV", 
+            description: "This project involves the use of Haar Cascades, a machine learning-based approach, to detect human emotions from facial expressions in real-time. By training the classifier on various labeled emotion datasets, the system can identify emotions such as happiness, sadness, anger, surprise, and fear through facial feature analysis. Haar Cascades are applied for efficient and rapid feature detection, making the system suitable for use in applications such as user experience monitoring, mental health assessment, or emotion-based interactions in AI systems.", 
             image: "./images/6.png", 
             link: "https://blog-platform.com" 
         },
         { 
-            title: "Task Manager", 
-            description: "A task management app with to-do list functionality.", 
+            title: "Bitcoin Price Prediction : LSTM, 1D-CNN, N-Beats", 
+            description: " This project focuses on predicting Bitcoin prices by transforming historical price data into a time series forecasting problem. Multiple models were developed, including Fully-Connected Networks, Long Short-Term Memory (LSTM), 1D Convolutional Neural Networks (CNN), and N-BEATS, to capture complex patterns in the data. Using TensorFlow’s layer subclassing, the models were optimized for multivariate analysis, taking into account factors like trading volume, market sentiment, and past price trends. The goal is to provide accurate short-term price predictions and better insights for investors in the volatile cryptocurrency market.", 
             image: "./images/7.png", 
             link: "https://taskmanager.com" 
         },
         { 
-            title: "Chat Application", 
-            description: "Real-time chat app with messaging functionality.", 
+            title: "Employee Management Dashboard : Java, Spring, SQL", 
+            description: "This project involved the creation of a web-based portal for efficient employee data management, designed with Figma for an intuitive user interface. The backend was built using J2EE, Spring MVC, JDBC, and SQL, enabling secure login and full CRUD (Create, Read, Update, Delete) operations on employee data. By integrating real-time data updates and a user-friendly, interactive design, the dashboard boosted user engagement by 25%. It provides managers with accurate insights into employee information, streamlining processes and improving overall operational efficiency.", 
             image: "./images/8.png", 
             link: "https://chatapp.com" 
         }
@@ -102,9 +102,9 @@ const Projects = () => {
         <CardContent
             sx={{
                 transition: 'max-height 0.3s ease',
-                maxHeight: 80, // Collapsed height
+                maxHeight: 90, // Collapsed height
                 '&:hover': {
-                    maxHeight: 150, // Expanded height
+                    maxHeight: 360, // Expanded height
                 },
             }}
         >

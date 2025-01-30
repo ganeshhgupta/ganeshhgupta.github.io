@@ -4,7 +4,7 @@ function About({ nightMode, startTyping }) {
   const [typedText, setTypedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   
-  const txt = 'Full-Stack Developer with 3+ years of experience in building scalable, enterprise-level applications in Java, Python, SQL, and AWS, and formulating automation tools to streamline workflows. Presently, pursing Masters in Computer Science at UT Arlington (thesis) with a research focus on using Histogram of Gradients from Event-Based Cameras for Motion Detection by Vision Transformers, while mentoring as a Graduate Teaching Assistant. I like to build things, solve real-world problems, find the most efficient way to get things done, and channelize technology for humans to have a better time on this planet. Scroll Down :)';
+  const txt = 'Full-Stack Developer with 3+ years of experience in building scalable, enterprise-level applications in Java, Python, SQL, and AWS, and formulating automation tools to streamline workflows. Presently, pursing my Masters Thesis at UTA with a research focus on using Histogram of Gradients from Event-Based Camera Datasets for Motion Detection by Vision Transformers, while mentoring as a Graduate Teaching Assistant. I like to build things, solve real-world problems, find the most efficient way to get things done, and channelize technology for humans to have a better time on this planet. Scroll Down :)';
 
   useEffect(() => {
     if (!startTyping || currentIndex >= txt.length) return;
@@ -18,7 +18,7 @@ function About({ nightMode, startTyping }) {
         return prev + 1;
       });
       setTypedText(txt.slice(0, currentIndex + 1));
-    }, 30); // Adjust timing here for faster/slower typing
+    }, 5); // Adjust timing here for faster/slower typing
 
     return () => clearInterval(typingInterval);
   }, [startTyping, currentIndex]);

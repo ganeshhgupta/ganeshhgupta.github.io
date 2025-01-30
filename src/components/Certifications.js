@@ -32,12 +32,6 @@ const Certifications = () => {
             issuedBy: "Udemy", 
             date: "October 2022", 
             image: "./images/mongodb.png" // Path to image (you need to provide the image)
-        },
-        { 
-            title: "CompTIA Security+", 
-            issuedBy: "CompTIA", 
-            date: "June 2020", 
-            image: "./images/comptia.png" // Path to image (you need to provide the image)
         }
     ];
 

@@ -26,7 +26,11 @@ const Contact = () => {
           textAlign: 'center',
         }}
       >
-        <Typography variant="h4" component="h2">
+        <Typography variant="h4" sx={{ 
+                        marginTop: 0, // Add margin-top to create space between sections
+                        fontFamily: '"Raleway", serif',
+                        textAlign: 'center' // Center align the text
+                    }}>
           Contact
         </Typography>
 
@@ -35,7 +39,7 @@ const Contact = () => {
           height: '2px', 
           backgroundColor: 'black',
           margin: '8px auto',
-          marginBottom: '25px'
+          marginBottom: '25px',
         }} />
 
         <ProfilePicture src={profilePic} alt="Profile Picture" />
@@ -43,8 +47,12 @@ const Contact = () => {
         <Box sx={{ width: '100%', mt: 2 }}>
           <Card>
             <CardContent>
-              <Typography variant="body1">
-                Feel free to reach out if you're interested in collaborating or have any questions about my work. <br/> Let’s build something amazing together.
+              <Typography variant="body1" sx={{ 
+                        marginTop: 0, // Add margin-top to create space between sections
+                        fontFamily: '"Raleway", serif',
+                        textAlign: 'center' // Center align the text
+                    }}>
+                Feel free to reach out for collaborations or questions about my work. <br/> Let’s build something amazing together.
               </Typography>
               <Box alignItems="center" sx={{ display: 'flex', gap: 2, marginTop: '10px', alignItems: 'center', justifyContent: 'center' }}>
                 <Tooltip title="Email" arrow>
