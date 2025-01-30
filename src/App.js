@@ -105,7 +105,9 @@ const App = () => {
                     <Education isSmallScreen={isSmallScreen} />
                 </Box>
 
-                <Certifications isSmallScreen={isSmallScreen} />
+                <Box id="certifications" sx={{ marginBottom: '32px' }}>
+                    <Certifications isSmallScreen={isSmallScreen} />
+                </Box>
 
                 <Box id="contact" sx={{ marginBottom: '32px' }}>
                     <Contact isSmallScreen={isSmallScreen} />

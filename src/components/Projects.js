@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography, Grid, Box, CardMedia, CardActionArea } from '@mui/material';
+import { motion } from 'framer-motion';
 
 const Projects = () => {
     const projects = [
@@ -17,7 +18,7 @@ const Projects = () => {
         },
         { 
             title: "Caltech 256 Object Classifier : ResNet50 : UTA Datathon ", 
-            description: "A React-based portfolio showcasing my work.", 
+            description: "This project developed an image classifier using PyTorch and transfer learning with a pre-trained ResNet50 model. Key techniques implemented include data augmentation to enhance dataset diversity, layer fine-tuning to adapt the pre-trained model to the specific task, and regularization methods to prevent overfitting. Additionally, few-shot learning was employed to improve performance for classes with limited data, enabling effective classification even in scenarios with scarce labeled examples.", 
             image: "./images/3.png", 
             link: "https://portfolio.com" 
         },
@@ -54,81 +55,87 @@ const Projects = () => {
     ];
 
     return (
-        <Box id="projects" sx={{ padding: 3 }}>
-            <Typography 
-                variant="h4" 
-                sx={{ 
-                    marginBottom: 4,
-                    fontFamily: '"Raleway", serif',
-                    textAlign: 'center'
-                }}
-            >
-                Projects
-            </Typography>
-            <Grid 
-                container 
-                spacing={4} 
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    '& > .MuiGrid-item': {
+        <motion.div
+            initial={{ opacity: 0, y: 50 }} // Starts invisible and slightly below
+            animate={{ opacity: 1, y: 0 }} // Fades in and moves up
+            transition={{ duration: 1.5, delay: 3, ease: "easeOut" }} // 3-sec delay before appearing
+        >
+            <Box id="projects" sx={{ padding: 3 }}>
+                <Typography 
+                    variant="h4" 
+                    sx={{ 
+                        marginBottom: 4,
+                        fontFamily: '"Raleway", serif',
+                        textAlign: 'center'
+                    }}
+                >
+                    Projects
+                </Typography>
+                <Grid 
+                    container 
+                    spacing={4} 
+                    sx={{
                         display: 'flex',
                         justifyContent: 'center',
-                    }
-                }}
-            >
-                {projects.map((project, index) => (
-                    <Grid item xs={12} sm={4} md={4} lg={4} key={index}>
-<Card
-    sx={{
-        width: '100%',
-        maxWidth: 400,
-        transition: 'all 0.3s ease',
-        overflow: 'hidden',
-        '&:hover': {
-            transform: 'scale(1.02)',
-            height: 'auto',
-        },
-        boxShadow: 3,
-    }}
->
-    <CardActionArea href={project.link} target="_blank" rel="noopener noreferrer">
-        <CardMedia
-            component="img"
-            height="140"
-            image={project.image}
-            alt={project.title}
-        />
-        <CardContent
-            sx={{
-                transition: 'max-height 0.3s ease',
-                maxHeight: 90, // Collapsed height
-                '&:hover': {
-                    maxHeight: 360, // Expanded height
-                },
-            }}
-        >
-            <Typography variant="h6" component="div">
-                {project.title}
-            </Typography>
-            <Typography 
-                variant="body2" 
-                color="text.secondary"
-                sx={{
-                    marginTop: 1, // Adds spacing between the title and description
-                }}
-            >
-                {project.description}
-            </Typography>
-        </CardContent>
-    </CardActionArea>
-</Card>
-
-                    </Grid>
-                ))}
-            </Grid>
-        </Box>
+                        '& > .MuiGrid-item': {
+                            display: 'flex',
+                            justifyContent: 'center',
+                        }
+                    }}
+                >
+                    {projects.map((project, index) => (
+                        <Grid item xs={12} sm={4} md={4} lg={4} key={index}>
+                            <Card
+                                sx={{
+                                    width: '100%',
+                                    maxWidth: 400,
+                                    transition: 'all 0.3s ease',
+                                    overflow: 'hidden',
+                                    '&:hover': {
+                                        transform: 'scale(1.02)',
+                                        height: 'auto',
+                                    },
+                                    boxShadow: 3,
+                                }}
+                            >
+                                <CardActionArea href={project.link} target="_blank" rel="noopener noreferrer">
+                                    <CardMedia
+                                        component="img"
+                                        height="140"
+                                        image={project.image}
+                                        alt={project.title}
+                                    />
+                                    <CardContent
+                                        sx={{
+                                            transition: 'max-height 0.3s ease',
+                                            maxHeight: 90, // Collapsed height
+                                            '&:hover': {
+                                                maxHeight: 360, // Expanded height
+                                            },
+                                        }}
+                                    >
+                                        <Typography variant="h6" component="div">
+                                            {project.title}
+                                        </Typography>
+                                        <Typography 
+                                            variant="body2" 
+                                            color="text.secondary"
+                                            sx={{
+                                                marginTop: 1, // Adds spacing between the title and description
+                                            }}
+                                        >
+                                            {project.description}
+                                        </Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
+        </motion.div>
     );
+    
 };
 
 export default Projects;

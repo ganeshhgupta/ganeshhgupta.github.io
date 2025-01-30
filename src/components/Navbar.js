@@ -49,7 +49,7 @@ const Navbar = ({ toggleNightMode, nightMode }) => {
     }, []);
 
     const renderLinks = () => (
-        ['Experience', 'Projects', 'Research', 'Education', 'About', 'Skills', 'Contact'].map((section) => (
+        [ 'Projects', 'Skills', 'Experience', 'Research', 'Education', 'Certifications', 'Contact'].map((section) => (
             <Link
                 key={section}
                 to={section.toLowerCase()} // Matches section IDs in App.js
@@ -143,7 +143,7 @@ const Navbar = ({ toggleNightMode, nightMode }) => {
                     <CloseIcon />
                 </IconButton>
                 <List>
-                    {['Experience', 'Projects', 'Research', 'Education', 'About', 'Skills', 'Contact'].map((section) => (
+                    {[ 'Projects', 'Skills', 'Experience', 'Research', 'Education', 'Certifications', 'Contact'].map((section) => (
                         <ListItem key={section} button onClick={() => setDrawerOpen(false)}>
                             <Link
                                 to={section.toLowerCase()} // Matches section IDs in App.js
