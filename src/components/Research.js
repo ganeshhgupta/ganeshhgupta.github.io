@@ -4,7 +4,7 @@ import { Card, CardContent, Typography, Grid, Box, CardMedia, CardActionArea } f
 const Research = () => {
     const research = [
         { 
-            title: "Low-latency motion detection using HoG from Event-Based Cameras", 
+            title: "Low-latency motion detection using HoG from Event-Based Cameras (Ongoing)", 
             description: "This research explores the application of Vision Transformers (ViTs) for tracking moving objects in low light conditions with ultra-low latency. Leveraging datasets from Event-Based Cameras, we focus on computing the Histogram of Gradients (HoG) of features at specific timestamps, which are known for their effectiveness in capturing shape and appearance information through gradient distributions. The study aims to enhance the performance of ViTs in dynamic, low-light environments, providing a novel approach for real-time object tracking with improved accuracy and efficiency.",
             image: "./images/ebc.png", // Path to image (you need to provide the image)
             link: "https://www.linkedin.com/posts/cseuta_uta-cse-research-activity-7290430085621288961-yKdw?utm_source=share&utm_medium=member_desktop" 

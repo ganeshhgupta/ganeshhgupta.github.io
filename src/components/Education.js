@@ -32,7 +32,7 @@ const Education = ({ nightMode }) => {
       imageUrl: "/images/uta.png", // Replace with the actual image URL for UTA
     },
     {
-      degree: "Bachelor of Technology in Information Technology",
+      degree: "Bachelor of Technology in Computer Science and Engineering",
       institution: "MCKV Institute of Engineering",
       year: "2020",
       description: [

@@ -30,11 +30,18 @@ const skillsByCategory = {
     { icon: <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLjdex_w5hDNMzrU4p2BaSkttupxozQMEteQ&s" alt="Tomcat" width={40} height={40} />, name: 'Tomcat', isCustom: true, iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLjdex_w5hDNMzrU4p2BaSkttupxozQMEteQ&s' },
     { icon: <img src="https://weppa.cloud/wp-content/uploads/2020/08/Apps-Weppa-Nuevos-28.png" alt="Wildfly" width={40} height={40} />, name: 'Wildfly', isCustom: true, iconUrl: 'https://weppa.cloud/wp-content/uploads/2020/08/Apps-Weppa-Nuevos-28.png' },
     { icon: <img src="https://ih1.redbubble.net/image.453956200.1706/tst,small,507x507-pad,600x600,f8f8f8.u5.jpg" alt="Jenkins" width={40} height={40} />, name: 'Jenkins', isCustom: true, iconUrl: 'https://ih1.redbubble.net/image.453956200.1706/tst,small,507x507-pad,600x600,f8f8f8.u5.jpg' },
+    { icon: <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Android_Studio_icon_%282023%29.svg/2048px-Android_Studio_icon_%282023%29.svg.png" alt="Android Studio" width={40} height={40} />, name: 'Android Studio', isCustom: true, iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Android_Studio_icon_%282023%29.svg/2048px-Android_Studio_icon_%282023%29.svg.png' },
+  ],
+
+  Databases: [
+
     { icon: <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFTvo5Avm0OntY98pk0Z9MRvBazgVmPO-TLf2o8kXUX_Xv5SfWzApd0gCfdJFu-f6X_64&usqp=CAU" alt="Firebase" width={40} height={40} />, name: 'Firebase', isCustom: true, iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFTvo5Avm0OntY98pk0Z9MRvBazgVmPO-TLf2o8kXUX_Xv5SfWzApd0gCfdJFu-f6X_64&usqp=CAU' },
     { icon: <img src="https://images.seeklogo.com/logo-png/27/1/mongodb-logo-png_seeklogo-273731.png" alt="MongoDB" width={40} height={40} />, name: 'MongoDB', isCustom: true, iconUrl: 'https://images.seeklogo.com/logo-png/27/1/mongodb-logo-png_seeklogo-273731.png' },
-    { icon: <img src="https://www.portaone.com/wp-content/uploads/2022/09/Logo-Oracle-1.webp" alt="Oracle" width={40} height={40} />, name: 'Oracle', isCustom: true, iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmLME0hpAJOqBGhaVjcgkk8hIKS3S4GAqrLg&s' },
+    { icon: <img src="https://www.portaone.com/wp-content/uploads/2022/09/Logo-Oracle-1.webp" alt="Oracle" width={40} height={40} />, name: 'Oracle', isCustom: true, iconUrl: 'https://www.portaone.com/wp-content/uploads/2022/09/Logo-Oracle-1.webp' },
     { icon: <img src="https://banner2.cleanpng.com/20180704/ylc/kisspng-mysql-database-computer-servers-microsoft-sql-serv-laxyo-solution-soft-pvt-ltd-5b3d2044b74d39.1344207915307326127508.jpg" alt="MySQL" width={40} height={40} />, name: 'MySQL', isCustom: true, iconUrl: 'https://banner2.cleanpng.com/20180704/ylc/kisspng-mysql-database-computer-servers-microsoft-sql-serv-laxyo-solution-soft-pvt-ltd-5b3d2044b74d39.1344207915307326127508.jpg' },
+      { icon: <img src="https://cdn.prod.website-files.com/63daf1fa1abcbc5e7969d7c9/641e0cf34bb664fa0044863d_pinecone-fav.webp" alt="PineconeDB" width={40} height={40} />, name: 'PineconeDB', isCustom: true, iconUrl: 'https://cdn.prod.website-files.com/63daf1fa1abcbc5e7969d7c9/641e0cf34bb664fa0044863d_pinecone-fav.webp' },
   ],
+
   "Artificial Intelligence / Automation": [
 
     { icon: <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIbNSol2KPLUo_aGSrDdm3Hg_EA07AijCvG7XWb47PsAYqv8NkYDx-VAHtftGlOvUXz1o&usqp=CAU" alt="OpenCV" width={40} height={40} />, name: 'OpenCV', isCustom: true, iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIbNSol2KPLUo_aGSrDdm3Hg_EA07AijCvG7XWb47PsAYqv8NkYDx-VAHtftGlOvUXz1o&usqp=CAU' },
