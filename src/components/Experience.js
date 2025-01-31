@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card, CardContent, Typography, Box, Collapse } from '@mui/material';
 import { Timeline, TimelineItem } from '@mui/lab';
+import { useMediaQuery } from '@mui/material';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
@@ -9,6 +10,7 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import WorkIcon from '@mui/icons-material/Work';
 
 const Experience = ({ nightMode }) => {
+  const isSmallScreen = useMediaQuery('(max-width:600px)');
   const experiences = [
     {
       role: "Graduate Teaching Assistant",
@@ -99,8 +101,8 @@ const Experience = ({ nightMode }) => {
                   display: 'flex',
                   flexDirection: { xs: 'column', sm: 'row' },
                   alignItems: 'center',
-                  minHeight: '150px',
-                  height: hoverIndex === index ? 'auto' : '120px',
+                  minHeight: { xs: '250px', sm: '130px' },
+                  maxHeight: hoverIndex === index ? 'auto' : '120px',
                   padding: 2,
                 }}
                 onMouseEnter={() => setHoverIndex(index)}
@@ -108,8 +110,8 @@ const Experience = ({ nightMode }) => {
               >
                 <Box
                   sx={{
-                    width: '50px',
-                    height: '50px',
+                    width: { xs: '40px', sm: '50px' },
+                    height: { xs: '40px', sm: '50px' },
                     borderRadius: '50%',
                     backgroundImage: `url(${exp.imageUrl})`,
                     backgroundSize: 'cover',
@@ -130,7 +132,7 @@ const Experience = ({ nightMode }) => {
                     flex: 1,
                   }}
                 >
-                  <Typography variant="h6" sx={{ marginBottom: 1 }}>
+                  <Typography variant="h6" sx={{ marginBottom: 1, fontSize: { xs: '1rem', sm: '1.25rem' } }}>
                     {exp.role}
                   </Typography>
                   <Typography
@@ -154,7 +156,7 @@ const Experience = ({ nightMode }) => {
                   >
                     {exp.duration}
                   </Typography>
-                  <Collapse in={hoverIndex === index}>
+                  <Collapse in={hoverIndex === index || !isSmallScreen} timeout={300}>
                     <Typography
                       variant="body2"
                       color="text.primary"

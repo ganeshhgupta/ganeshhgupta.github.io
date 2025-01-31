@@ -1,6 +1,7 @@
 import React, { useState } from 'react'; 
 import { Card, CardContent, Typography, Box, Collapse, Grid } from '@mui/material';
 import { Timeline, TimelineItem } from '@mui/lab';
+import { useMediaQuery } from '@mui/material';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
@@ -9,6 +10,7 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import SchoolIcon from '@mui/icons-material/School';
 
 const Education = ({ nightMode }) => {
+  const isSmallScreen = useMediaQuery('(max-width:600px)');
   const education = [
     {
       degree: "Master of Science in Computer Science",
@@ -120,8 +122,8 @@ const Education = ({ nightMode }) => {
                   display: 'flex',
                   flexDirection: { xs: 'column', sm: 'row' }, // Stack content vertically on mobile
                   alignItems: 'center',
-                  minHeight: '150px',
-                  height: hoverIndex === index ? 'auto' : '120px',
+                  minHeight: { xs: '260px', sm: '130px' },
+                  maxHeight: hoverIndex === index ? 'auto' : '130px',
                   padding: 2,
                 }}
                 onMouseEnter={() => setHoverIndex(index)}
@@ -129,8 +131,8 @@ const Education = ({ nightMode }) => {
               >
                 <Box
                   sx={{
-                    width: '50px',
-                    height: '50px',
+                    width: { xs: '40px', sm: '50px' },
+                    height: { xs: '40px', sm: '50px' },
                     borderRadius: '50%',
                     backgroundImage: `url(${edu.imageUrl})`, // Use the specific image for each entry
                     backgroundSize: 'cover',
@@ -151,8 +153,8 @@ const Education = ({ nightMode }) => {
                     flex: 1,
                   }}
                 >
-                  <Typography variant="h6" sx={{ marginBottom: 1 }}>
-                    {edu.degree}
+                  <Typography variant="h6" sx={{ marginBottom: 1, fontSize: { xs: '1rem', sm: '1.25rem' } }}>
+                  {edu.degree}
                   </Typography>
                   <Typography color="text.secondary" sx={{ marginBottom: 1 }}>
                     {edu.institution}
@@ -160,7 +162,7 @@ const Education = ({ nightMode }) => {
                   <Typography variant="body2" color="text.secondary" sx={{ marginBottom: 1 }}>
                     {edu.year}
                   </Typography>
-                  <Collapse in={hoverIndex === index}>
+                  <Collapse in={hoverIndex === index || !isSmallScreen}>
                     <Typography variant="h6" sx={{ marginTop: 2, marginBottom: 1, fontSize: '1rem' }}>
                       {edu.description[0]} {/* "Relevant Coursework" heading */}
                     </Typography>

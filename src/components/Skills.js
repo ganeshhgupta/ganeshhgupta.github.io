@@ -15,13 +15,22 @@ const skillsByCategory = {
     { icon: <img src="https://www.thymeleaf.org/images/thymeleaf.png" alt="Thymeleaf" width={40} height={40} />, name: 'Thymeleaf', isCustom: true, iconUrl: 'https://www.thymeleaf.org/images/thymeleaf.png' },
 
   ],
+
+  Databases: [
+
+    { icon: <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFTvo5Avm0OntY98pk0Z9MRvBazgVmPO-TLf2o8kXUX_Xv5SfWzApd0gCfdJFu-f6X_64&usqp=CAU" alt="Firebase" width={40} height={40} />, name: 'Firebase', isCustom: true, iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFTvo5Avm0OntY98pk0Z9MRvBazgVmPO-TLf2o8kXUX_Xv5SfWzApd0gCfdJFu-f6X_64&usqp=CAU' },
+    { icon: <img src="https://images.seeklogo.com/logo-png/27/1/mongodb-logo-png_seeklogo-273731.png" alt="MongoDB" width={40} height={40} />, name: 'MongoDB', isCustom: true, iconUrl: 'https://images.seeklogo.com/logo-png/27/1/mongodb-logo-png_seeklogo-273731.png' },
+    { icon: <img src="https://www.portaone.com/wp-content/uploads/2022/09/Logo-Oracle-1.webp" alt="Oracle" width={40} height={40} />, name: 'Oracle', isCustom: true, iconUrl: 'https://www.portaone.com/wp-content/uploads/2022/09/Logo-Oracle-1.webp' },
+    { icon: <img src="https://banner2.cleanpng.com/20180704/ylc/kisspng-mysql-database-computer-servers-microsoft-sql-serv-laxyo-solution-soft-pvt-ltd-5b3d2044b74d39.1344207915307326127508.jpg" alt="MySQL" width={40} height={40} />, name: 'MySQL', isCustom: true, iconUrl: 'https://banner2.cleanpng.com/20180704/ylc/kisspng-mysql-database-computer-servers-microsoft-sql-serv-laxyo-solution-soft-pvt-ltd-5b3d2044b74d39.1344207915307326127508.jpg' },
+      { icon: <img src="https://cdn.prod.website-files.com/63daf1fa1abcbc5e7969d7c9/641e0cf34bb664fa0044863d_pinecone-fav.webp" alt="PineconeDB" width={40} height={40} />, name: 'PineconeDB', isCustom: true, iconUrl: 'https://cdn.prod.website-files.com/63daf1fa1abcbc5e7969d7c9/641e0cf34bb664fa0044863d_pinecone-fav.webp' },
+  ],
+
   Technology: [
     { icon: <img src="https://cdn.worldvectorlogo.com/logos/amazon-s3-simple-storage-service.svg" alt="AWS S3" width={40} height={40} />, name: 'AWS S3', isCustom: true, iconUrl: 'https://cdn.worldvectorlogo.com/logos/amazon-s3-simple-storage-service.svg' },
-    { icon: <img src="https://miro.medium.com/v2/resize:fit:735/1*U56JIjUVBUVcUZRTA8RBXA.png" alt="GitHub Actions" width={40} height={40} />, name: 'GitHub Actions', isCustom: true, iconUrl: 'https://miro.medium.com/v2/resize:fit:735/1*U56JIjUVBUVcUZRTA8RBXA.png' },
     { icon: <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Amazon_Lambda_architecture_logo.svg/2048px-Amazon_Lambda_architecture_logo.svg.png" alt="AWS Lambda" width={40} height={40} />, name: 'AWS Lambda', isCustom: true, iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Amazon_Lambda_architecture_logo.svg/2048px-Amazon_Lambda_architecture_logo.svg.png' },
     { icon: <img src="https://www.apono.io/wp-content/uploads/2023/05/amazon-sqs-min.png" alt="AWS SQS" width={40} height={40} />, name: 'AWS SQS', isCustom: true, iconUrl: 'https://www.apono.io/wp-content/uploads/2023/05/amazon-sqs-min.png' },
     { icon: <img src="https://raw.githubusercontent.com/pulumi/pulumi-aws-apigateway/main/assets/logo.png" alt="API Gateway" width={40} height={40} />, name: 'API Gateway', isCustom: true, iconUrl: 'https://raw.githubusercontent.com/pulumi/pulumi-aws-apigateway/main/assets/logo.png' },
-    { icon: <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/docker_original_logo_icon_146556.png" alt="Docker" width={40} height={40} />, name: 'Docker', isCustom: true, iconUrl: 'https://cdn.icon-icons.com/icons2/2415/PNG/512/docker_original_logo_icon_146556.png' },
+    { icon: <img src="https://cdn-icons-png.flaticon.com/512/919/919853.png" alt="Docker" width={40} height={40} />, name: 'Docker', isCustom: true, iconUrl: 'https://cdn-icons-png.flaticon.com/512/919/919853.png' },
     
     
     { icon: <img src="https://www.geekandjob.com/uploads/wiki/3abebb36b664ca8ac4d29397bb9d2705198996a5.png" alt="Spring MVC" width={40} height={40} />, name: 'Spring MVC', isCustom: true, iconUrl: 'https://www.geekandjob.com/uploads/wiki/3abebb36b664ca8ac4d29397bb9d2705198996a5.png' },
@@ -31,15 +40,6 @@ const skillsByCategory = {
     { icon: <img src="https://weppa.cloud/wp-content/uploads/2020/08/Apps-Weppa-Nuevos-28.png" alt="Wildfly" width={40} height={40} />, name: 'Wildfly', isCustom: true, iconUrl: 'https://weppa.cloud/wp-content/uploads/2020/08/Apps-Weppa-Nuevos-28.png' },
     { icon: <img src="https://ih1.redbubble.net/image.453956200.1706/tst,small,507x507-pad,600x600,f8f8f8.u5.jpg" alt="Jenkins" width={40} height={40} />, name: 'Jenkins', isCustom: true, iconUrl: 'https://ih1.redbubble.net/image.453956200.1706/tst,small,507x507-pad,600x600,f8f8f8.u5.jpg' },
     { icon: <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Android_Studio_icon_%282023%29.svg/2048px-Android_Studio_icon_%282023%29.svg.png" alt="Android Studio" width={40} height={40} />, name: 'Android Studio', isCustom: true, iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Android_Studio_icon_%282023%29.svg/2048px-Android_Studio_icon_%282023%29.svg.png' },
-  ],
-
-  Databases: [
-
-    { icon: <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFTvo5Avm0OntY98pk0Z9MRvBazgVmPO-TLf2o8kXUX_Xv5SfWzApd0gCfdJFu-f6X_64&usqp=CAU" alt="Firebase" width={40} height={40} />, name: 'Firebase', isCustom: true, iconUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFTvo5Avm0OntY98pk0Z9MRvBazgVmPO-TLf2o8kXUX_Xv5SfWzApd0gCfdJFu-f6X_64&usqp=CAU' },
-    { icon: <img src="https://images.seeklogo.com/logo-png/27/1/mongodb-logo-png_seeklogo-273731.png" alt="MongoDB" width={40} height={40} />, name: 'MongoDB', isCustom: true, iconUrl: 'https://images.seeklogo.com/logo-png/27/1/mongodb-logo-png_seeklogo-273731.png' },
-    { icon: <img src="https://www.portaone.com/wp-content/uploads/2022/09/Logo-Oracle-1.webp" alt="Oracle" width={40} height={40} />, name: 'Oracle', isCustom: true, iconUrl: 'https://www.portaone.com/wp-content/uploads/2022/09/Logo-Oracle-1.webp' },
-    { icon: <img src="https://banner2.cleanpng.com/20180704/ylc/kisspng-mysql-database-computer-servers-microsoft-sql-serv-laxyo-solution-soft-pvt-ltd-5b3d2044b74d39.1344207915307326127508.jpg" alt="MySQL" width={40} height={40} />, name: 'MySQL', isCustom: true, iconUrl: 'https://banner2.cleanpng.com/20180704/ylc/kisspng-mysql-database-computer-servers-microsoft-sql-serv-laxyo-solution-soft-pvt-ltd-5b3d2044b74d39.1344207915307326127508.jpg' },
-      { icon: <img src="https://cdn.prod.website-files.com/63daf1fa1abcbc5e7969d7c9/641e0cf34bb664fa0044863d_pinecone-fav.webp" alt="PineconeDB" width={40} height={40} />, name: 'PineconeDB', isCustom: true, iconUrl: 'https://cdn.prod.website-files.com/63daf1fa1abcbc5e7969d7c9/641e0cf34bb664fa0044863d_pinecone-fav.webp' },
   ],
 
   "Artificial Intelligence / Automation": [
@@ -75,7 +75,7 @@ const Skills = ({ nightMode }) => {
                 fontFamily: '"Raleway", serif',
               }}
             >
-              Professional Skills
+              Technical Skills
             </Typography>
       {Object.keys(skillsByCategory).map((category) => (
         <Box key={category}>

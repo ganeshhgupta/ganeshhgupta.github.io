@@ -7,31 +7,36 @@ const Certifications = () => {
             title: "AWS Certified Developer", 
             issuedBy: "Amazon Web Services (AWS)", 
             date: "December 2024", 
-            image: "./images/aws-dva.png" // Path to image (you need to provide the image)
+            image: "./images/aws-dva.png", // Path to image (you need to provide the image)
+            link: "https://www.linkedin.com/in/ganeshhgupta/details/certifications/1735708390898/single-media-viewer/?type=IMAGE&profileId=ACoAACvkiwgBVMxRuPJtwOd7r8NoeQvekuEWHgk"
         },
         { 
             title: "Full Stack Java developer - Java + JSP + Restful WS + Spring", 
             issuedBy: "Udemy", 
             date: "March 2022", 
-            image: "./images/spring.png" // Path to image (you need to provide the image)
+            image: "./images/spring.png", // Path to image (you need to provide the image)
+            link: "https://www.udemy.com/certificate/UC-3320e3d4-24b1-453f-9baa-8e5e69e56ecd/"
         },
         { 
             title: "TensorFlow Developer Certificate", 
             issuedBy: "Google", 
             date: "March 2022", 
-            image: "./images/tf-dev.png" // Path to image (you need to provide the image)
+            image: "./images/tf-dev.png", // Path to image (you need to provide the image)
+            link: "https://www.udemy.com/certificate/UC-11af7658-2b43-4cd9-b03b-97d1efbbc183/"
         },
         { 
             title: "The Complete Node.js Developer Course", 
             issuedBy: "Udemy", 
             date: "March 2021", 
-            image: "./images/nodejs.png" // Path to image (you need to provide the image)
+            image: "./images/nodejs.png", // Path to image (you need to provide the image)
+            link: "https://www.udemy.com/certificate/UC-1d6a12c6-5325-4dbe-9e6c-61b45821ce48/"
         },
         { 
             title: "MongoDB - The Complete Developer's Guide", 
             issuedBy: "Udemy", 
             date: "October 2022", 
-            image: "./images/mongodb.png" // Path to image (you need to provide the image)
+            image: "./images/mongodb.png", // Path to image (you need to provide the image)
+            link: "https://www.udemy.com/certificate/UC-5184f38f-04cc-4a32-9a1d-39f7c08793d6/"
         }
     ];
 
@@ -71,7 +76,7 @@ const Certifications = () => {
                                 boxShadow: 3,
                             }}
                         >
-                            <CardActionArea>
+                            <CardActionArea href={item.link} target="_blank" rel="noopener noreferrer">
                                 <CardMedia
                                     component="img"
                                     height="180" // Adjusted height for a taller photo
