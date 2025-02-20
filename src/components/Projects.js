@@ -57,7 +57,20 @@ const Projects = () => {
                 description: "A web-based portal for managing employee data with secure login and full CRUD operations. Built with Java, Spring, and SQL, it enhances operational efficiency and boosts user engagement by 25%.", 
                 image: "./images/8.png", 
                 link: "https://chatapp.com" 
+            },
+            {
+                title: "Facebook vs Google AdWords A/B Testing and Conversion Analysis",
+                description: "Conducted data cleaning and analyzed click-to-conversion ratios, segmented data, and performed correlation, regression, and A/B testing with interactive visualizations to determine the more effective marketing platform.",
+                image: "./images/ab_test.png",
+                link: "https://github.com/ganeshhgupta/Facebook_vs_Adwords_AB_Testing"
+            },
+            {
+                title: "ETL (Extract-Transform-Load) Pipeline for Amazon Books : Apache Airflow",
+                description: "Developed an Apache Airflow DAG to extract, transform, and load book data from Amazon into PostgreSQL, ensuring efficient data structuring and automation.",
+                image: "./images/etl.png",
+                link: "https://github.com/ganeshhgupta/Amazon-Books-ETL"
             }
+                        
         
     ];
 
