@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import { Card, CardContent, Typography, Box, Collapse, Grid } from '@mui/material';
 import { Timeline, TimelineItem } from '@mui/lab';
 import { useMediaQuery } from '@mui/material';
@@ -11,6 +11,7 @@ import SchoolIcon from '@mui/icons-material/School';
 
 const Education = ({ nightMode }) => {
   const isSmallScreen = useMediaQuery('(max-width:600px)');
+
   const education = [
     {
       degree: "Master of Science in Computer Science",
@@ -41,25 +42,25 @@ const Education = ({ nightMode }) => {
         "Relevant Coursework",
         [
           "Data Structures and Algorithms",
-          "Computer Organization",
-          "Operating System",
-          "Discrete Mathematics",
-          "Object Oriented Programming",
-          "Design and Analysis of Algorithms",
-          "Database Management System",
-          "Computer Networks",
-          "Software Engineering",
-          "Compiler Design",
-          "Artificial Intelligence",
-          "Cryptography and Network Security",
-          "Cloud Computing",
-          "Internet Technology",
-          "Computer Graphics",
-          "E-Commerce",
-          "Industrial Training",
+"Computer Organization",
+"Operating System",
+"Discrete Mathematics",
+"Object Oriented Programming",
+"Design and Analysis of Algorithms",
+"Database Management System",
+"Computer Networks",
+"Software Engineering",
+"Compiler Design",
+"Artificial Intelligence",
+"Cryptography and Network Security",
+"Cloud Computing",
+"Internet Technology",
+"Computer Graphics",
+"E-Commerce",
+"Industrial Training",
         ]
       ],
-      imageUrl: "/images/mckvie.png", // Replace with the actual image URL for MCKV Institute
+      imageUrl: "/images/mckvie.png", // Replace with the actual image URL for ABC University
     },
   ];
 
@@ -69,11 +70,11 @@ const Education = ({ nightMode }) => {
     <Box
       id="education"
       sx={{
-        padding: { xs: 3, sm: 5 }, // Responsive padding
+        padding: 5,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        marginTop: 4,
+        marginTop: 4, // Adds space between sections
       }}
     >
       <Typography
@@ -82,7 +83,6 @@ const Education = ({ nightMode }) => {
           marginBottom: 2,
           textAlign: 'center',
           fontFamily: '"Raleway", serif',  // Applying Raleway font
-          fontSize: { xs: '1.8rem', sm: '2.5rem' }, // Responsive font size
         }}
       >
         Education
@@ -112,7 +112,7 @@ const Education = ({ nightMode }) => {
             >
               <Card
                 sx={{
-                  width: { xs: '100%', sm: '700px' }, // Full width on mobile, fixed width on larger screens
+                  width: '700px',
                   marginBottom: 2,
                   transition: 'transform 0.3s ease-in-out, height 0.3s ease-in-out',
                   transform: hoverIndex === index ? 'scale(1.05)' : 'scale(1)',
@@ -120,7 +120,7 @@ const Education = ({ nightMode }) => {
                   overflow: 'hidden',
                   backgroundColor: nightMode ? "text.200" : 'text.100',
                   display: 'flex',
-                  flexDirection: { xs: 'column', sm: 'row' }, // Stack content vertically on mobile
+                  flexDirection: 'row',
                   alignItems: 'center',
                   minHeight: { xs: '260px', sm: '130px' },
                   maxHeight: hoverIndex === index ? 'auto' : '130px',
@@ -137,8 +137,7 @@ const Education = ({ nightMode }) => {
                     backgroundImage: `url(${edu.imageUrl})`, // Use the specific image for each entry
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    marginBottom: { xs: 2, sm: 0 }, // Margin for mobile devices
-                    marginRight: { sm: 2 }, // Margin for larger screens
+                    marginRight: 2,
                   }}
                 />
                 <CardContent
@@ -168,7 +167,7 @@ const Education = ({ nightMode }) => {
                     </Typography>
                     <Grid container spacing={2}>
                       {edu.description[1].map((course, courseIndex) => (
-                        <Grid item xs={12} sm={4} key={courseIndex}> {/* Full width on small screens */}
+                        <Grid item xs={4} key={courseIndex}>
                           <ul style={{ fontSize: '0.9rem', paddingLeft: '20px' }}>
                             <li style={{ fontSize: '0.9rem' }}>{course}</li>
                           </ul>

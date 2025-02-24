@@ -17,63 +17,54 @@ import CloseIcon from '@mui/icons-material/Close';
 import HomeIcon from '@mui/icons-material/Home'; // Import HomeIcon
 import { useMediaQuery } from '@mui/material';
 
-const Navbar = () => {
+const Navbar = ({ toggleNightMode, nightMode }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const [showNavbar, setShowNavbar] = useState(true);
-    const [nightMode, setNightMode] = useState(false); // Local state for night mode
-    const isSmallScreen = useMediaQuery('(max-width:600px)');
-    let lastScrollY = 0;
-
-    // Load night mode state from localStorage on component mount
-    useEffect(() => {
-        const savedNightMode = localStorage.getItem('nightMode') === 'true';
-        setNightMode(savedNightMode);
-    }, []);
-
-    // Save night mode state to localStorage whenever it changes
-    useEffect(() => {
-        localStorage.setItem('nightMode', nightMode);
-    }, [nightMode]);
+    const [showNavbar, setShowNavbar] = useState(true); // State to track visibility
+    const isSmallScreen = useMediaQuery('(max-width:600px)'); // Detect small screens
+    let lastScrollY = 0; // Variable to track scroll position
 
     const toggleDrawer = (open) => {
         setDrawerOpen(open);
     };
 
     const handleScroll = () => {
+        // Check the scroll direction and show/hide navbar accordingly
         if (window.scrollY < lastScrollY) {
+            // Scroll up - show navbar
             setShowNavbar(true);
         } else {
+            // Scroll down - hide navbar
             setShowNavbar(false);
         }
-        lastScrollY = window.scrollY;
+        lastScrollY = window.scrollY; // Update last scroll position
     };
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll); // Listen to scroll events
 
+        // Cleanup event listener on component unmount
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
     const renderLinks = () => (
-        ['Projects', 'Skills', 'Experience', 'Research', 'Education', 'Certifications', 'Contact'].map((section) => (
+        ['Experience', 'Projects', 'Research', 'Education', 'About', 'Skills', 'Contact'].map((section) => (
             <Link
                 key={section}
-                to={section.toLowerCase()}
+                to={section.toLowerCase()} // Matches section IDs in App.js
                 smooth={true}
                 duration={500}
-                offset={-70}
+                offset={-70} // Adjust for navbar height
             >
                 <Button
                     sx={{
                         color: nightMode ? 'white' : 'black',
                         textTransform: 'capitalize',
-                        display: 'block',
+                        display: 'block', // For better alignment in the drawer
                         margin: isSmallScreen ? '8px 0' : '0 8px',
-                        fontFamily: '"Raleway", serif'
                     }}
-                    onClick={() => setDrawerOpen(false)}
+                    onClick={() => setDrawerOpen(false)} // Close drawer after clicking
                 >
                     {section}
                 </Button>
@@ -84,20 +75,21 @@ const Navbar = () => {
     return (
         <>
             <AppBar
-                position="fixed"
+                position="fixed" // Keep the navbar fixed on the screen
                 sx={{
-                    backgroundColor: nightMode ? '#000000' : 'white',
+                    backgroundColor: nightMode ? '#000000' : 'white', // Explicit hex for black
                     color: nightMode ? 'white' : 'black',
                     boxShadow: 'none',
-                    width: '100%',
-                    top: showNavbar ? '0px' : '-64px',
-                    transition: 'top 0.5s ease-in-out',
+                    width: '100%', // Ensure it stretches full width
+                    top: showNavbar ? '0px' : '-64px', // Slide navbar up or down
+                    transition: 'top 0.5s ease-in-out', // Smooth sliding effect
                 }}
             >
                 <Toolbar>
+                    {/* Mobile Menu Icon (Left-Aligned) */}
                     {isSmallScreen && (
                         <IconButton
-                            edge="start"
+                            edge="start" // Aligns the menu icon to the top-left
                             color="inherit"
                             onClick={() => toggleDrawer(true)}
                             sx={{ marginRight: '8px' }}
@@ -106,29 +98,33 @@ const Navbar = () => {
                         </IconButton>
                     )}
 
+                    {/* Home Icon (instead of "Home") */}
                     <IconButton
                         color="inherit"
-                        onClick={() => scroll.scrollToTop()}
+                        onClick={() => scroll.scrollToTop()} // Scroll to the top when clicked
                         sx={{ marginLeft: '8px' }}
                     >
                         <HomeIcon />
                     </IconButton>
 
+                    {/* Desktop Links */}
                     {!isSmallScreen && renderLinks()}
 
+                    {/* Night Mode Toggle (Shifted to the top right) */}
                     <Switch
                         checked={nightMode}
-                        onChange={() => setNightMode((prevMode) => !prevMode)}
+                        onChange={toggleNightMode}
                         sx={{
                             position: 'absolute',
-                            right: 16,
+                            right: 16, // Align to the top-right
                         }}
                     />
                 </Toolbar>
             </AppBar>
 
+            {/* Drawer for Mobile Navigation */}
             <Drawer
-                anchor="left"
+                anchor="left" // Opens the drawer from the left
                 open={drawerOpen}
                 onClose={() => toggleDrawer(false)}
                 PaperProps={{
@@ -146,14 +142,14 @@ const Navbar = () => {
                     <CloseIcon />
                 </IconButton>
                 <List>
-                    {['Projects', 'Skills', 'Experience', 'Research', 'Education', 'Certifications', 'Contact'].map((section) => (
+                    {['Experience', 'Projects', 'Research', 'Education', 'About', 'Skills', 'Contact'].map((section) => (
                         <ListItem key={section} button onClick={() => setDrawerOpen(false)}>
                             <Link
-                                to={section.toLowerCase()}
+                                to={section.toLowerCase()} // Matches section IDs in App.js
                                 smooth={true}
                                 duration={500}
                                 offset={-70}
-                                style={{ width: '100%', textDecoration: 'none', fontFamily: '"Raleway", serif' }}
+                                style={{ width: '100%', textDecoration: 'none' }}
                             >
                                 <ListItemText
                                     primary={section}
