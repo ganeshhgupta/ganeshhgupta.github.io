@@ -4,8 +4,21 @@ import { motion } from 'framer-motion';
 
 const Projects = () => {
     const projects = [
+{
+    title: "Real-Time Movie Recommendation System 2025",
+    description: "Built a movie recommendation engine that combines the strengths of content-based and collaborative filtering, enriched by transformer models capable of understanding complex user-item relationships. The system integrates multi-modal inputs—text descriptions, metadata, and user interaction history—to deliver highly personalized suggestions. Evaluated on the MovieLens dataset, it reached 96% accuracy, showing how modern attention-based architectures can enhance traditional recommender systems.",
+    image: "./images/rec.png",
+    link: "https://github.com/ganeshhgupta/movie-recommendation-system"
+},
+{
+    title: "Real-Time Credit Card Fraud Detection System 2025",
+    description: "Designed a real-time fraud detection system that uses Apache Kafka to stream live credit card transactions and Apache Spark Structured Streaming to process them in motion. The pipeline applies machine learning–based anomaly detection models that learn spending behavior and flag suspicious activity within milliseconds. This system mimics real-world banking infrastructures, focusing on speed, scalability, and the ability to retrain models with live feedback loops.",
+    image: "./images/fraud.png",
+    link: "https://github.com/ganeshhgupta/credit-card-fraud-detection"
+},
+
         { 
-            title: "Low Latency Motion Tracking using Vision Transformer : Thesis", 
+            title: "Event-Based Histogram of Gradients for Lane Detection : Thesis", 
             description: "Vision Transformers have revolutionized the field of computer vision by applying the self-attention mechanism to image recognition tasks. This project aims to enhance ViT's performance by incorporating HOG features, which are known for their ability to capture shape and appearance information through gradient distributions.", 
             image: "./images/1.png", 
             link: "https://github.com/ganeshhgupta/HoG-ViT" 

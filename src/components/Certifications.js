@@ -3,6 +3,13 @@ import { Card, CardContent, Typography, Grid, Box, CardMedia, CardActionArea } f
 
 const Certifications = () => {
     const certifications = [
+                { 
+            title: "AWS Certified Developer", 
+            issuedBy: "Amazon Web Services (AWS)", 
+            date: "December 2024", 
+            image: "./images/mlops.png", // Path to image (you need to provide the image)
+            link: "https://www.linkedin.com/in/ganeshhgupta/details/certifications/1735708390898/single-media-viewer/?type=IMAGE&profileId=ACoAACvkiwgBVMxRuPJtwOd7r8NoeQvekuEWHgk"
+        },
         { 
             title: "AWS Certified Developer", 
             issuedBy: "Amazon Web Services (AWS)", 

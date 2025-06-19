@@ -13,9 +13,17 @@ const Experience = ({ nightMode }) => {
   const isSmallScreen = useMediaQuery('(max-width:600px)');
   const experiences = [
     {
+      role: "Research Assistant",
+      company: "University of Texas at Arlington Research Institute",
+      duration: "2025-Ongoing",
+      description:
+        "Currently, I'm working as a research assistant at the University of Texas at Arlington Research Institute, where I harness event-based camera data and perform sensor fusion with IMUs and LiDAR to enhance real-time perception and motion tracking for robotics and autonomous systems.",
+      imageUrl: "/images/utari.png",
+    },
+    {
       role: "Graduate Teaching Assistant",
       company: "University of Texas at Arlington",
-      duration: "2024-Ongoing",
+      duration: "2024-2025",
       description:
         "I had the privilege of mentoring a class of 19 students, where I guided them through the fundamentals of Android Studio, mobile app development, and integrating Firebase for backend functionality.\n\nAs part of the mentorship, I conducted live coding workshops to strengthen students' programming and debugging abilities, which contributed to a noticeable improvement in their class performance.\n\n I also led practical lab sessions focused on Raspberry Pi projects, giving students hands-on experience with hardware and programming, further enhancing their technical skills.",
       imageUrl: "/images/uta.png",
