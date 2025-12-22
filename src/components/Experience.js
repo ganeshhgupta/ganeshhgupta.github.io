@@ -12,13 +12,22 @@ import WorkIcon from '@mui/icons-material/Work';
 const Experience = ({ nightMode }) => {
   const isSmallScreen = useMediaQuery('(max-width:600px)');
   const experiences = [
-    {
-      role: "Research Assistant",
-      company: "University of Texas at Arlington Research Institute",
-      duration: "2025-Ongoing",
+{
+      role: "Machine Learning Engineer",
+      company: "ReplyQuick",
+      duration: "Nov 2025 - Present",
       description:
-        "Currently, I'm working as a research assistant at the University of Texas at Arlington Research Institute, where I harness event-based camera data and perform sensor fusion with IMUs and LiDAR to enhance real-time perception and motion tracking for robotics and autonomous systems.",
-      imageUrl: "/images/utari.png",
+        "I'm leading the architecture and deployment of production ML systems in a fast-paced start-up, that serve real-time dental disease classification at scale. My work focuses on building cost-efficient, serverless infrastructure that processes over 100K monthly predictions while keeping operational costs under $2.\n\nOne of my proudest achievements has been designing an end-to-end computer vision pipeline that consolidates 24 different medical imaging datasets—nearly 39K images with varying classification schemes into a unified detection system achieving 91-93% mAP@50. This involved building robust ETL pipelines, handling class imbalances through synthetic data generation, and reducing data preparation cycles from weeks to just days.\n\nI also led the technical evaluation of multiple YOLO architectures across different GPU configurations on AWS SageMaker, ultimately selecting a deployment strategy that balances sub-50ms inference latency with 60% cost savings through spot instances. The infrastructure I built achieves 97% cost reduction compared to traditional approaches while maintaining sub-second P99 latency through event-driven Lambda orchestration and intelligent auto-scaling.",
+      imageUrl: "/images/replyquick.png",
+    },
+
+    {
+      role: "Software Developer - Machine Learning",
+      company: "Oracle - (Contract)",
+      duration: "Jun 2025 – Nov 2025",
+      description:
+        "I had the opportunity to build intelligent AI agents using OpenAI's Agents SDK and MCP architecture, processing millions of daily transactions with 99%+ uptime. This work included integrating AI-powered fraud detection that improved detection accuracy by 25%.\n\nOne of my key contributions was architecting high-throughput microservices using Node.js, Kafka, PostgreSQL, and Spark Structured Streaming, achieving sub-200ms latency with comprehensive distributed tracing and real-time transaction stream processing.\n\nAdditionally, I established automated model training workflows with server-sent events for real-time metrics streaming from training containers, reducing API calls by 90% and enabling continuous model improvement for production fraud detection systems.",
+      imageUrl: "/images/oracle.png",
     },
     {
       role: "Graduate Teaching Assistant",
