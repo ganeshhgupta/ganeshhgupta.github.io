@@ -1,67 +1,123 @@
 import React, { useState, useEffect } from "react";
 
-function About({ nightMode, startTyping, isSmallScreen }) {
+const HEADER = "I build AI systems that run in production — agentic pipelines, LLM orchestration, distributed backends, and the infrastructure that holds it all together.";
+
+const PARAGRAPHS = [
+  "At DentalScan I lead a team building a computer vision platform on AWS processing 38,000+ records daily at 94% accuracy and sub-100ms latency. At Oracle I built a multi-agent NLP platform using LangChain, LangGraph, and a custom MCP server handling millions of enterprise transactions. Before that, four years at Nomura architecting financial data systems for 1M+ users at 99.9% uptime. I hold a Master's in Computer Science from UT Arlington and my research covered multi-agent reinforcement learning and Vision Transformer models for real-time benchmarks.",
+  "I like to tinker. I've built a natural language interface that decomposes questions into multi-step database queries, an ML auto-retraining pipeline that triggers itself when models drift, and an agentic graph system that tries to map how a person thinks. Right now I'm deep in something that keeps me up at night: whether present-day LLMs are actually capable of original thought.",
+];
+
+const FULL_TEXT = [HEADER, ...PARAGRAPHS].join("\n\n");
+
+function About({ nightMode, startTyping }) {
   const [typedText, setTypedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
-  
-  //const txt = 'Full-Stack Developer with 3+ years of experience in building scalable, enterprise-level applications in Java, Python, SQL, and AWS, and formulating automation tools to streamline workflows. Presently, pursing my Masters Thesis at UTA with a research focus on using Histogram of Gradients from Event-Based Camera Datasets for Motion Tracking by Vision Transformers, while mentoring as a Graduate Teaching Assistant. I like to build things, solve real-world problems, find the most efficient way to get things done, and channelize technology for humans to have a better time on this planet. Scroll Down :)';
-  const txt = "AWS Certified Software Engineer with 5+ years of experience building intelligent AI systems and enterprise-scale applications across fintech, healthcare, and automation domains. I specialize in architecting production ML infrastructure, payment automation systems, and real-time data pipelines using Python, Node.js, React, and AWS—with a strong focus on cost-efficient, scalable solutions that deliver measurable business impact. Recently graduated with a Master's in Computer Science from the University of Texas at Arlington, where my research focused on multi-agent reinforcement learning for 5G network optimization and fine-tuning LLaMA models for finance applications. Currently, I'm coordinating ML engineering at ReplyQuickAI, an early-stage startup, where I've built serverless computer vision systems processing 38,000+ medical images with 91-93% detection accuracy, achieving sub-100ms inference latency while maintaining HIPAA compliance and 97% uptime. Previously, I delivered payment automation agents and fraud detection systems at Oracle processing millions of daily transactions, and spent 4 years at Nomura architecting enterprise banking applications serving 10,000+ users while leading an 8-member team. I enjoy figuring things out—whether it's optimizing code, solving messy edge cases, or building prototypes that just work—and I find real satisfaction in chasing clarity and creating smarter, more efficient tools, which is why I'm excited to contribute in environments that value impact and innovation, whether that means building from scratch or helping scale and improve existing systems—always ready to dive deep, wear multiple hats, and turn ideas into real outcomes. Scroll down :)";
 
   useEffect(() => {
-    if (!startTyping || currentIndex >= txt.length) return;
+    if (!startTyping || currentIndex >= FULL_TEXT.length) return;
 
-    const typingInterval = setInterval(() => {
+    const id = setInterval(() => {
       setCurrentIndex(prev => {
-        if (prev >= txt.length) {
-          clearInterval(typingInterval);
-          return prev;
-        }
+        if (prev >= FULL_TEXT.length) { clearInterval(id); return prev; }
         return prev + 1;
       });
-      setTypedText(txt.slice(0, currentIndex + 1));
-    }, 3); // 3 ms per char — fast type
+      setTypedText(FULL_TEXT.slice(0, currentIndex + 1));
+    }, 3);
 
-    return () => clearInterval(typingInterval);
+    return () => clearInterval(id);
   }, [startTyping, currentIndex]);
 
-  const isMobile = isSmallScreen || window.innerWidth < 600;
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 600;
 
-  const containerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    height: 'auto',
-    paddingTop: isMobile ? '26vh' : '30vh',
-    paddingBottom: '50px',
-    boxSizing: 'border-box',
-    transition: 'padding-bottom 0.5s ease',
-  };
+  // Split into header + paragraphs once typing is done, or progressively
+  const done = typedText.length >= FULL_TEXT.length;
+  const parts = done ? [HEADER, ...PARAGRAPHS] : null;
 
-  const textStyle = {
-    fontFamily: '"Raleway", serif',
-    fontWeight: 400,
-    fontSize: isMobile ? '0.9rem' : '0.95rem',
-    textAlign: 'left',
-    margin: '0 auto',
-    overflow: 'hidden',
-    letterSpacing: '0.06em',
-    width: '100%',
-    whiteSpace: 'pre-wrap',
-    lineHeight: '1.7rem',
-    color: nightMode ? '#ffffff' : '#000000',
-    textShadow: nightMode ? '0px 0px 8px rgba(255, 255, 255, 0.3)' : 'none',
-    transition: 'color 0.3s ease',
-  };
-
-  // Format text with line breaks after each sentence
-  const formattedText = typedText.replace(/\. /g, '.\n\n');
+  const color = nightMode ? '#ffffff' : '#000000';
 
   return (
-    <div style={containerStyle}>
-      <div style={textStyle}>
-        {formattedText}
-      </div>
+    <div
+      style={{
+        paddingTop: isMobile ? '26vh' : '30vh',
+        paddingBottom: '40px',
+        minHeight: '80vh',   // always reserves space so Projects don't creep up under the name
+        // Narrow column — prevents wall-of-text feel
+        maxWidth: '780px',
+        margin: '0 auto',
+        boxSizing: 'border-box',
+      }}
+    >
+      {parts ? (
+        <>
+          {/* Header */}
+          <p
+            style={{
+              fontFamily: '"Raleway", serif',
+              fontWeight: 600,
+              fontSize: isMobile ? '1.1rem' : '1.25rem',
+              lineHeight: 1.75,
+              letterSpacing: '0.03em',
+              textAlign: 'justify',
+              color,
+              margin: '0 0 1.6rem 0',
+              transition: 'color 0.3s ease',
+            }}
+          >
+            {parts[0]}
+          </p>
+
+          {/* Body paragraphs */}
+          {parts.slice(1).map((p, i) => (
+            <p
+              key={i}
+              style={{
+                fontFamily: '"Raleway", serif',
+                fontWeight: 400,
+                fontSize: isMobile ? '1rem' : '1.08rem',
+                lineHeight: 1.85,
+                letterSpacing: '0.04em',
+                textAlign: 'justify',
+                color,
+                margin: '0 0 1.4rem 0',
+                transition: 'color 0.3s ease',
+              }}
+            >
+              {p}
+            </p>
+          ))}
+
+          <p
+            style={{
+              fontFamily: '"Raleway", serif',
+              fontWeight: 300,
+              fontSize: '0.8rem',
+              letterSpacing: '0.1em',
+              color,
+              opacity: 0.45,
+              margin: '2rem 0 0 0',
+            }}
+          >
+            Scroll down :)
+          </p>
+        </>
+      ) : (
+        /* While typing — plain pre-wrap block */
+        <div
+          style={{
+            fontFamily: '"Raleway", serif',
+            fontWeight: 400,
+            fontSize: isMobile ? '1rem' : '1.08rem',
+            lineHeight: 1.85,
+            letterSpacing: '0.04em',
+            textAlign: 'justify',
+            color,
+            whiteSpace: 'pre-wrap',
+            transition: 'color 0.3s ease',
+          }}
+        >
+          {typedText}
+        </div>
+      )}
     </div>
   );
 }

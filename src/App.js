@@ -47,7 +47,7 @@ const App = () => {
                     px: { xs: 2, sm: 4, md: 8, lg: 16 },
                 }}
             >
-                <Box id="about" sx={{ mb: 4 }}>
+                <Box id="about" sx={{ mb: 2 }}>
                     <About
                         nightMode={nightMode}
                         startTyping={startTypingAbout}

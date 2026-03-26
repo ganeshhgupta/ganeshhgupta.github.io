@@ -364,11 +364,12 @@ const Projects = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.5, delay: 3, ease: 'easeOut' }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.65, ease: 'easeOut' }}
     >
-      <Box id="projects" sx={{ py: { xs: 3, sm: 4 } }}>
+      <Box id="projects" sx={{ pt: { xs: 1, sm: 2 }, pb: { xs: 3, sm: 4 } }}>
         <Typography
           variant="h4"
           sx={{ mb: 3, fontFamily: '"Raleway", serif', fontWeight: 400, textAlign: 'center' }}
@@ -423,11 +424,18 @@ const Projects = () => {
               <motion.div
                 key={project.title}
                 layout
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
                 style={{
                   ...getGridStyle(index),
                   height: isDesktop && hoveredIdx === index ? '100%' : undefined,
                 }}
-                transition={{ layout: { duration: 0.38, ease: [0.4, 0, 0.2, 1] } }}
+                transition={{
+                  layout: { duration: 0.38, ease: [0.4, 0, 0.2, 1] },
+                  opacity: { duration: 0.5, ease: 'easeOut', delay: (index % 3) * 0.1 },
+                  y: { duration: 0.5, ease: 'easeOut', delay: (index % 3) * 0.1 },
+                }}
                 onHoverStart={() => isDesktop && setHoveredIdx(index)}
                 onHoverEnd={() => isDesktop && setHoveredIdx(null)}
               >
