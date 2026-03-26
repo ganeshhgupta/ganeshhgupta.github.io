@@ -1,44 +1,15 @@
-.typewriter {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: "Raleway", serif;
-  font-weight: 400; /* Normal font weight */
-  font-size: clamp(2rem, 8vw, 5rem); /* Adjusted font size to fit better */
-  text-align: center;
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Centers the text within the container */
-  overflow: hidden; /* Hides the content until it's typed */
-  border-right: 0.025em solid #999999; /* Make the cursor thinner */
-  letter-spacing: 0.05em; /* Reduced spacing between letters */
-  animation: typing 2.5s steps(20, end) forwards, disappear 0s 2.5s forwards; /* Typing and then disappearing cursor */
+/* Cursor blink */
+@keyframes nameBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-/* The typing effect */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%; /* Ensure the width covers the entire text */
-  }
+/* Subtitle flip in/out */
+@keyframes subtitleIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
-/* Make the cursor disappear after typing */
-@keyframes disappear {
-  to {
-    border-color: transparent; /* Hide the cursor */
-  }
+@keyframes subtitleOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(8px); }
 }
-
-/* Day mode styles */
-.about-day {
-  color: #222222; /* Normal text color for day mode */
-}
-
-/* Night mode styles */
-.about-night {
-  color: white; /* Text color for night mode */
-}
-

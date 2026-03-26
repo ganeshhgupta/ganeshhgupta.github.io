@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { ThemeProvider, createTheme, CssBaseline, Box, useMediaQuery } from '@mui/material';
+import React, { useState } from 'react';
+import { ThemeProvider, createTheme, CssBaseline, Box, Container } from '@mui/material';
 import Navbar from './components/Navbar';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Research from './components/Research';
 import Education from './components/Education';
 import About from './components/About';
-import Particle from './components/Particle';
+import Particle from './components/particle';
 import CenteredName from './components/CenteredName';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
@@ -14,11 +14,9 @@ import Skills from './components/Skills';
 import Footer from './components/Footer';
 
 const App = () => {
-    const [nightMode, setNightMode] = useState(false); // Handles theme mode
-    const [startTypingAbout, setStartTypingAbout] = useState(false); // Triggers the typing effect for About
-    const isSmallScreen = useMediaQuery('(max-width:600px)'); // Responsive check for smaller screens
+    const [nightMode, setNightMode] = useState(false);
+    const [startTypingAbout, setStartTypingAbout] = useState(false);
 
-    // Define MUI theme based on the night mode state
     const theme = createTheme({
         palette: {
             mode: nightMode ? 'dark' : 'light',
@@ -26,96 +24,66 @@ const App = () => {
         },
     });
 
-    const toggleNightMode = () => setNightMode(!nightMode); // Toggles between light and dark mode
-
-    useEffect(() => {
-        // Triggers typing animation in About section after a delay
-        const timer = setTimeout(() => setStartTypingAbout(true), 3000); // 3 seconds delay
-        return () => clearTimeout(timer); // Cleanup timer
-    }, []);
+    const toggleNightMode = () => setNightMode(!nightMode);
 
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline /> {/* Normalizes styles for consistent cross-browser appearance */}
-            
-            {/* Navbar with Night Mode Toggle */}
-            <Navbar 
-                toggleNightMode={toggleNightMode} 
-                nightMode={nightMode} 
-                isSmallScreen={isSmallScreen} 
-            />
-            
-            {/* Particle Background */}
-            <Particle 
-                toggleNightMode={toggleNightMode} 
-                nightMode={nightMode} 
-                isSmallScreen={isSmallScreen} 
-            />
-            
-            {/* Centered Name Section */}
-            <CenteredName 
-                toggleNightMode={toggleNightMode} 
-                nightMode={nightMode} 
-                isSmallScreen={isSmallScreen} 
+            <CssBaseline />
+
+            <Navbar toggleNightMode={toggleNightMode} nightMode={nightMode} />
+
+            <Particle toggleNightMode={toggleNightMode} nightMode={nightMode} />
+
+            <CenteredName
+                nightMode={nightMode}
+                onReady={() => setStartTypingAbout(true)}
             />
 
-            {/* Main Content Sections */}
-            <Box
+            <Container
+                maxWidth="xl"
                 sx={{
-                    marginX: isSmallScreen ? '16px' : '250px',
                     position: 'relative',
                     zIndex: 1,
+                    px: { xs: 2, sm: 4, md: 8, lg: 16 },
                 }}
             >
-                <Box id="about" sx={{ marginBottom: '32px' }}>
+                <Box id="about" sx={{ mb: 4 }}>
                     <About
-                        toggleNightMode={toggleNightMode}
                         nightMode={nightMode}
                         startTyping={startTypingAbout}
-                        isSmallScreen={isSmallScreen}
                     />
                 </Box>
 
-                <Box id="projects" sx={{ marginBottom: '32px' }}>
-                    <Projects isSmallScreen={isSmallScreen} />
+                <Box id="projects" sx={{ mb: 4 }}>
+                    <Projects />
                 </Box>
 
-                <Box id="skills" sx={{ marginBottom: '32px' }}>
-                    <Skills isSmallScreen={isSmallScreen} />
-                </Box>
-            </Box>
-
-            {/* Secondary Content Sections */}
-            <Box
-                sx={{
-                    marginX: isSmallScreen ? '16px' : '250px',
-                    position: 'relative',
-                    zIndex: 1,
-                }}
-            >
-                <Box id="experience" sx={{ marginBottom: '32px' }}>
-                    <Experience isSmallScreen={isSmallScreen} />
+                <Box id="skills" sx={{ mb: 4 }}>
+                    <Skills nightMode={nightMode} toggleNightMode={toggleNightMode} />
                 </Box>
 
-                <Box id="research" sx={{ marginBottom: '32px' }}>
-                    <Research isSmallScreen={isSmallScreen} />
+                <Box id="experience" sx={{ mb: 4 }}>
+                    <Experience nightMode={nightMode} />
                 </Box>
 
-                <Box id="education" sx={{ marginBottom: '32px' }}>
-                    <Education isSmallScreen={isSmallScreen} />
+                <Box id="research" sx={{ mb: 4 }}>
+                    <Research />
                 </Box>
 
-                <Box id="certifications" sx={{ marginBottom: '32px' }}>
-                    <Certifications isSmallScreen={isSmallScreen} />
+                <Box id="education" sx={{ mb: 4 }}>
+                    <Education />
                 </Box>
 
-                <Box id="contact" sx={{ marginBottom: '32px' }}>
-                    <Contact isSmallScreen={isSmallScreen} />
+                <Box id="certifications" sx={{ mb: 4 }}>
+                    <Certifications />
                 </Box>
-            </Box>
 
-            {/* Footer */}
-            <Footer isSmallScreen={isSmallScreen} />
+                <Box id="contact" sx={{ mb: 4 }}>
+                    <Contact />
+                </Box>
+            </Container>
+
+            <Footer nightMode={nightMode} />
         </ThemeProvider>
     );
 };

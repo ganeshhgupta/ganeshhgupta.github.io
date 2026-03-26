@@ -1,6 +1,7 @@
-import React from 'react';
-import { Box, Tooltip, Typography, Grid, Avatar } from '@mui/material';
-import { Javascript as JavascriptIcon, Code as CodeIcon, PhpSharp as PhpSharpIcon } from '@mui/icons-material';
+import React, { useState, useRef } from 'react';
+import { Box, Tooltip, Typography, Grid, Avatar, IconButton } from '@mui/material';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import GalagaGame from './GalagaGame';
 
 const skillsByCategory = {
   Programming: [
@@ -75,57 +76,91 @@ const skillsByCategory = {
   ],
 };
 
-const Skills = ({ nightMode }) => {
+// Flat list of all skills for the game
+const allSkillsFlat = Object.values(skillsByCategory)
+  .flat()
+  .map(s => ({ name: s.name, iconUrl: s.iconUrl }));
+
+const Skills = ({ nightMode, toggleNightMode }) => {
+  const [gameMode, setGameMode] = useState(false);
+  const prevNightRef = useRef(false);
+
+  const enterGame = () => {
+    prevNightRef.current = nightMode;
+    if (!nightMode && toggleNightMode) toggleNightMode();
+    setGameMode(true);
+  };
+
+  const exitGame = () => {
+    setGameMode(false);
+    // Night mode stays as-is; user can toggle manually
+  };
+
   return (
-    <Box 
-      sx={{ 
-        padding: '20px 0',
-        backgroundColor: nightMode ? "text.200" : 'text.100',
-        color: nightMode ? "text.200" : 'text.100',
-      }}
-    >
-      <Typography
-              variant="h4"
-              sx={{
-                marginBottom: 2,
-                textAlign: 'center',
-                fontFamily: '"Raleway", serif',
-              }}
-            >
-              Technical Skills
-            </Typography>
-      {Object.keys(skillsByCategory).map((category) => (
+    <Box sx={{ padding: '20px 0' }}>
+      {/* Heading + game button */}
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, mb: 2 }}>
+        <Typography
+          variant="h4"
+          sx={{ fontFamily: '"Raleway", serif', textAlign: 'center' }}
+        >
+          Technical Skills
+        </Typography>
+        <Tooltip title={gameMode ? 'Exit Game' : 'Click here'} arrow>
+          <IconButton
+            onClick={gameMode ? exitGame : enterGame}
+            size="small"
+            sx={{
+              color: gameMode ? '#FF6B6B' : (nightMode ? '#00E5FF' : '#555'),
+              backgroundColor: gameMode
+                ? 'rgba(255,107,107,0.12)'
+                : (nightMode ? 'rgba(0,229,255,0.1)' : 'rgba(0,0,0,0.06)'),
+              border: gameMode
+                ? '1px solid rgba(255,107,107,0.4)'
+                : (nightMode ? '1px solid rgba(0,229,255,0.3)' : '1px solid rgba(0,0,0,0.12)'),
+              transition: 'all 0.25s ease',
+              '&:hover': {
+                backgroundColor: gameMode ? 'rgba(255,107,107,0.2)' : 'rgba(0,229,255,0.2)',
+                transform: 'scale(1.1)',
+              },
+            }}
+          >
+            <SportsEsportsIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
+      </Box>
+
+      {/* Game mode */}
+      {gameMode && (
+        <GalagaGame skills={allSkillsFlat} onExit={exitGame} />
+      )}
+
+      {/* Normal skills grid */}
+      {!gameMode && Object.keys(skillsByCategory).map((category) => (
         <Box key={category}>
-          <Typography variant="h5" sx={{ marginBottom: 2 , textAlign: 'center', padding: '20px 0', fontFamily: '"Raleway", serif'}}>
+          <Typography variant="h5" sx={{ marginBottom: 2, textAlign: 'center', padding: '20px 0', fontFamily: '"Raleway", serif' }}>
             {category}
           </Typography>
           <Grid container spacing={2} justifyContent="center">
             {skillsByCategory[category].map((skill, index) => (
-              <Grid item key={index} xs={3} sm={2} md={1}>
+              <Grid item key={index} xs={3} sm={2} md={1} sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Tooltip title={skill.name} arrow>
                   <Box
                     sx={{
-                      backgroundColor: nightMode ? "text.200" : 'text.100' ,
-                      color: nightMode ? "text.200" : 'text.100',
-                      borderRadius: '50%', // Round
-                      width: 70, 
+                      borderRadius: '50%',
+                      width: 70,
                       height: 70,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      transition: 'background-color 0.3s ease-in-out',
                       transition: 'transform 0.3s ease',
                       '&:hover': {
-                          transform: 'scale(2.5)',
-                        },
+                        transform: { xs: 'scale(1.4)', sm: 'scale(2.0)' },
+                      },
                     }}
                   >
                     {skill.isCustom ? (
-                      <Avatar
-                        alt={skill.name}
-                        src={skill.iconUrl}
-                        sx={{ width: 40, height: 40 }}
-                      />
+                      <Avatar alt={skill.name} src={skill.iconUrl} sx={{ width: 40, height: 40 }} />
                     ) : (
                       skill.icon
                     )}

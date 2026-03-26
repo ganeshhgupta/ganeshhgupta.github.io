@@ -63,7 +63,13 @@ const Experience = ({ nightMode }) => {
     },
   ];
 
-  const [hoverIndex, setHoverIndex] = useState(null);
+  const [expandedIndex, setExpandedIndex] = useState(null);
+
+  const handleCardInteract = (index) => {
+    if (isSmallScreen) {
+      setExpandedIndex(expandedIndex === index ? null : index);
+    }
+  };
 
   return (
     <Box
@@ -110,20 +116,19 @@ const Experience = ({ nightMode }) => {
                 sx={{
                   width: { xs: '100%', sm: '700px' },
                   marginBottom: 2,
-                  transition: 'transform 0.3s ease-in-out, height 0.3s ease-in-out',
-                  transform: hoverIndex === index ? 'scale(1.05)' : 'scale(1)',
+                  transition: 'transform 0.3s ease-in-out',
+                  transform: !isSmallScreen && expandedIndex === index ? 'scale(1.02)' : 'scale(1)',
                   cursor: 'pointer',
                   overflow: 'hidden',
                   backgroundColor: nightMode ? 'text.200' : 'text.100',
                   display: 'flex',
                   flexDirection: { xs: 'column', sm: 'row' },
-                  alignItems: 'center',
-                  minHeight: { xs: '250px', sm: '130px' },
-                  maxHeight: hoverIndex === index ? 'auto' : '120px',
+                  alignItems: { xs: 'flex-start', sm: 'center' },
                   padding: 2,
                 }}
-                onMouseEnter={() => setHoverIndex(index)}
-                onMouseLeave={() => setHoverIndex(null)}
+                onMouseEnter={() => !isSmallScreen && setExpandedIndex(index)}
+                onMouseLeave={() => !isSmallScreen && setExpandedIndex(null)}
+                onClick={() => handleCardInteract(index)}
               >
                 <Box
                   sx={{
@@ -173,7 +178,7 @@ const Experience = ({ nightMode }) => {
                   >
                     {exp.duration}
                   </Typography>
-                  <Collapse in={hoverIndex === index || !isSmallScreen} timeout={300}>
+                  <Collapse in={expandedIndex === index} timeout={300}>
                     <Typography
                       variant="body2"
                       color="text.primary"

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function About({ nightMode, startTyping }) {
+function About({ nightMode, startTyping, isSmallScreen }) {
   const [typedText, setTypedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   
@@ -19,10 +19,12 @@ function About({ nightMode, startTyping }) {
         return prev + 1;
       });
       setTypedText(txt.slice(0, currentIndex + 1));
-    }, 5); // Adjust timing here for faster/slower typing
+    }, 3); // 3 ms per char — fast type
 
     return () => clearInterval(typingInterval);
   }, [startTyping, currentIndex]);
+
+  const isMobile = isSmallScreen || window.innerWidth < 600;
 
   const containerStyle = {
     display: 'flex',
@@ -30,7 +32,7 @@ function About({ nightMode, startTyping }) {
     alignItems: 'center',
     justifyContent: 'flex-start',
     height: 'auto',
-    paddingTop: '45vh',
+    paddingTop: isMobile ? '26vh' : '30vh',
     paddingBottom: '50px',
     boxSizing: 'border-box',
     transition: 'padding-bottom 0.5s ease',
@@ -39,14 +41,14 @@ function About({ nightMode, startTyping }) {
   const textStyle = {
     fontFamily: '"Raleway", serif',
     fontWeight: 400,
-    fontSize: '0.95rem',
+    fontSize: isMobile ? '0.9rem' : '0.95rem',
     textAlign: 'left',
     margin: '0 auto',
     overflow: 'hidden',
-    letterSpacing: '0.08em',
-    width: '80%',
+    letterSpacing: '0.06em',
+    width: '100%',
     whiteSpace: 'pre-wrap',
-    lineHeight: '1.50rem',
+    lineHeight: '1.7rem',
     color: nightMode ? '#ffffff' : '#000000',
     textShadow: nightMode ? '0px 0px 8px rgba(255, 255, 255, 0.3)' : 'none',
     transition: 'color 0.3s ease',
