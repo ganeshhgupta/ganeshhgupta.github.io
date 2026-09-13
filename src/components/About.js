@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Box, Typography } from '@mui/material';
+import profilePic from './images/dp.png';
 
-const ROLE_TAGS = "SOFTWARE ENGINEER · AI SYSTEMS · INFRASTRUCTURE";
+const ROLE_TAGS = "AI SYSTEMS · ML and Data INFRA · FULL STACK";
 
-const HEADLINE = "Production AI systems, built to hold under load.";
+const NAME = "Ganesh Gupta";
 
 const SUBTEXT = "I approach infrastructure the way I approach a hard bug: trace it to the root, not the symptom. I build the agentic pipelines, model-serving layers, and distributed backends that run underneath AI products, at the scale where the easy version stops working.";
 
@@ -41,7 +42,7 @@ function About() {
         }}
       >
         <Box component="span" sx={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#22C55E', display: 'inline-block' }} />
-        Dallas, TX &middot; {timeStr}
+        {timeStr}
       </Typography>
 
       <Typography
@@ -56,17 +57,31 @@ function About() {
         {ROLE_TAGS}
       </Typography>
 
-      <Typography
-        variant="h1"
-        sx={{
-          fontSize: { xs: '2.3rem', sm: '3.4rem' },
-          lineHeight: 1.1,
-          mb: 3,
-          maxWidth: '780px',
-        }}
-      >
-        {HEADLINE}
-      </Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 2, sm: 3 }, mb: 3 }}>
+        <Box
+          component="img"
+          src={profilePic}
+          alt={NAME}
+          sx={{
+            width: { xs: 64, sm: 88 },
+            height: { xs: 64, sm: 88 },
+            borderRadius: '50%',
+            objectFit: 'cover',
+            border: '1px solid',
+            borderColor: 'divider',
+            flexShrink: 0,
+          }}
+        />
+        <Typography
+          variant="h1"
+          sx={{
+            fontSize: { xs: '2rem', sm: '3.1rem' },
+            lineHeight: 1.1,
+          }}
+        >
+          {NAME}
+        </Typography>
+      </Box>
 
       <Typography color="text.secondary" sx={{ maxWidth: '640px', fontSize: { xs: '0.95rem', sm: '1.02rem' }, mb: 4 }}>
         {SUBTEXT}
