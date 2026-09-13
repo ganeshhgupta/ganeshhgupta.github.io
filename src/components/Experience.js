@@ -9,7 +9,7 @@ import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import WorkIcon from '@mui/icons-material/Work';
 
-const Experience = ({ nightMode }) => {
+const Experience = () => {
   const isSmallScreen = useMediaQuery('(max-width:600px)');
   const experiences = [
     {
@@ -62,52 +62,35 @@ const Experience = ({ nightMode }) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        marginTop: 4,
-        marginRight: { xs: 0, sm: 3 },
       }}
     >
-      <Typography
-        variant="h4"
-        sx={{
-          marginBottom: 2,
-          textAlign: 'center',
-          fontFamily: '"Raleway", serif',
-        }}
-      >
-        Professional Experience
+      <Typography variant="h4" sx={{ marginBottom: 3, textAlign: 'center' }}>
+        Experience
       </Typography>
-      <Timeline position="right" sx={{ maxWidth: { xs: '100%', sm: '800px' }, width: '100%' }}>
+      <Timeline position="right" sx={{ maxWidth: { xs: '100%', sm: '820px' }, width: '100%' }}>
         {experiences.map((exp, index) => (
           <TimelineItem key={index}>
             <TimelineOppositeContent sx={{ display: 'none' }} />
             <TimelineSeparator>
               <TimelineConnector />
-              <TimelineDot color="primary">
-                <WorkIcon />
+              <TimelineDot color="primary" variant="outlined">
+                <WorkIcon fontSize="small" />
               </TimelineDot>
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent
-              sx={{
-                py: '12px',
-                px: 2,
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
+            <TimelineContent sx={{ py: '12px', px: 2, display: 'flex', justifyContent: 'center' }}>
               <Card
                 sx={{
-                  width: { xs: '100%', sm: '700px' },
+                  width: { xs: '100%', sm: '720px' },
                   marginBottom: 2,
-                  transition: 'transform 0.3s ease-in-out',
-                  transform: !isSmallScreen && expandedIndex === index ? 'scale(1.02)' : 'scale(1)',
-                  cursor: 'pointer',
+                  transition: 'border-color 0.2s ease',
+                  borderColor: expandedIndex === index ? 'primary.main' : 'divider',
+                  cursor: isSmallScreen ? 'pointer' : 'default',
                   overflow: 'hidden',
-                  backgroundColor: nightMode ? 'text.200' : 'text.100',
                   display: 'flex',
                   flexDirection: { xs: 'column', sm: 'row' },
-                  alignItems: { xs: 'flex-start', sm: 'center' },
-                  padding: 2,
+                  alignItems: { xs: 'flex-start', sm: 'flex-start' },
+                  padding: 2.5,
                 }}
                 onMouseEnter={() => !isSmallScreen && setExpandedIndex(index)}
                 onMouseLeave={() => !isSmallScreen && setExpandedIndex(null)}
@@ -115,58 +98,37 @@ const Experience = ({ nightMode }) => {
               >
                 <Box
                   sx={{
-                    width: { xs: '40px', sm: '50px' },
-                    height: { xs: '40px', sm: '50px' },
+                    width: { xs: '40px', sm: '46px' },
+                    height: { xs: '40px', sm: '46px' },
                     borderRadius: '50%',
                     backgroundImage: `url(${exp.imageUrl})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    marginRight: { xs: 0, sm: 2 },
+                    flexShrink: 0,
+                    marginRight: { xs: 0, sm: 2.5 },
                     marginBottom: { xs: 2, sm: 0 },
                   }}
                 />
-                <CardContent
-                  sx={{
-                    textAlign: 'left',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'flex-start',
-                    height: '100%',
-                    overflow: 'hidden',
-                    flex: 1,
-                  }}
-                >
-                  <Typography variant="h6" sx={{ marginBottom: 1, fontSize: { xs: '1rem', sm: '1.25rem' } }}>
+                <CardContent sx={{ textAlign: 'left', p: '0 !important', flex: 1 }}>
+                  <Typography variant="h6" sx={{ marginBottom: 0.5 }}>
                     {exp.role}
                   </Typography>
-                  <Typography
-                    color="text.secondary"
-                    sx={{
-                      overflowWrap: 'break-word',
-                      whiteSpace: 'normal',
-                      marginBottom: 1,
-                    }}
-                  >
+                  <Typography color="text.secondary" sx={{ fontSize: '0.92rem', marginBottom: 0.5 }}>
                     {exp.company}
                   </Typography>
                   <Typography
-                    variant="body2"
                     color="text.secondary"
                     sx={{
-                      overflowWrap: 'break-word',
-                      whiteSpace: 'normal',
-                      marginBottom: 1,
+                      fontFamily: '"JetBrains Mono", monospace',
+                      fontSize: '0.76rem',
+                      marginBottom: 1.5,
+                      opacity: 0.85,
                     }}
                   >
                     {exp.duration}
                   </Typography>
-                  <Collapse in={expandedIndex === index} timeout={300}>
-                    <Typography
-                      variant="body2"
-                      color="text.primary"
-                      sx={{ whiteSpace: 'pre-wrap' }}
-                    >
+                  <Collapse in={expandedIndex === index} timeout={250}>
+                    <Typography variant="body2" color="text.secondary" sx={{ whiteSpace: 'pre-wrap' }}>
                       {exp.description}
                     </Typography>
                   </Collapse>

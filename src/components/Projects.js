@@ -4,23 +4,16 @@ import {
   Typography, Box, Chip, Collapse, IconButton, useMediaQuery
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { motion, LayoutGroup } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const CATEGORIES = ['Agentic', 'Gen AI', 'ML', 'Full Stack'];
-
-const CATEGORY_COLORS = {
-  'Agentic':    { bg: '#EDE9FE', text: '#6D28D9', border: '#7C3AED' },
-  'Gen AI':     { bg: '#ECFEFF', text: '#0E7490', border: '#0891B2' },
-  'ML':         { bg: '#FFF7ED', text: '#C2410C', border: '#EA580C' },
-  'Full Stack': { bg: '#EFF6FF', text: '#1D4ED8', border: '#2563EB' },
-};
 
 // ─── ALL PROJECTS ────────────────────────────────────────────────────────────
 const allProjects = [
   // ── TOP FEATURED ─────────────────────────────────────────────────────────
   {
     title: "Tomorokoshi: Longitudinal Psychological Digital Twin App",
-    description: "A self-modeling system where journaling and adaptive, high-signal MCQs continuously build a dynamic graph of a user's psychology. Instead of a chatbot, it forms a structured \"digital twin\" that understands behaviors, values, and internal conflicts over time. The twin enables personalized introspection, predicts reactions, tracks psychological drift, and offers compatibility mapping with others—while delivering insights gradually based on the user's level of self-awareness.",
+    description: "A self-modeling system where journaling and adaptive, high-signal MCQs continuously build a dynamic graph of a user's psychology. Instead of a chatbot, it forms a structured \"digital twin\" that understands behaviors, values, and internal conflicts over time. The twin enables personalized introspection, predicts reactions, tracks psychological drift, and offers compatibility mapping with others, while delivering insights gradually based on the user's level of self-awareness.",
     image: "./images/tomorokoshi.png",
     link: "https://github.com/ganeshhgupta/tomorokoshi",
     tags: ['Agentic', 'Gen AI', 'Full Stack'],
@@ -110,91 +103,70 @@ const allProjects = [
 
   // ── ORIGINAL PROJECTS ─────────────────────────────────────────────────────
   {
-    title: "Real-Time Movie Recommendation System 2025",
-    description: "Built a movie recommendation engine that combines the strengths of content-based and collaborative filtering, enriched by transformer models capable of understanding complex user-item relationships. The system integrates multi-modal inputs—text descriptions, metadata, and user interaction history—to deliver highly personalized suggestions. Evaluated on the MovieLens dataset, it reached 96% accuracy.",
+    title: "Real-Time Movie Recommendation System",
+    description: "Built a movie recommendation engine that combines the strengths of content-based and collaborative filtering, enriched by transformer models capable of understanding complex user-item relationships. The system integrates multi-modal inputs, text descriptions, metadata, and user interaction history, to deliver highly personalized suggestions. Evaluated on the MovieLens dataset, it reached 96% accuracy.",
     image: "./images/rec.png",
     link: "https://github.com/ganeshhgupta/movie-recommendation-system",
     tags: ['ML'],
   },
   {
-    title: "Real-Time Credit Card Fraud Detection System 2025",
-    description: "Designed a real-time fraud detection system that uses Apache Kafka to stream live credit card transactions and Apache Spark Structured Streaming to process them in motion. The pipeline applies machine learning–based anomaly detection models that learn spending behavior and flag suspicious activity within milliseconds.",
+    title: "Real-Time Credit Card Fraud Detection System",
+    description: "Designed a real-time fraud detection system that uses Apache Kafka to stream live credit card transactions and Apache Spark Structured Streaming to process them in motion. The pipeline applies machine learning-based anomaly detection models that learn spending behavior and flag suspicious activity within milliseconds.",
     image: "./images/fraud.png",
     link: "https://github.com/ganeshhgupta/credit-card-fraud-detection",
     tags: ['ML', 'Full Stack'],
   },
   {
-    title: "Event-Based Histogram of Gradients for Lane Detection : Thesis",
-    description: "Vision Transformers have revolutionized the field of computer vision by applying the self-attention mechanism to image recognition tasks. This project aims to enhance ViT's performance by incorporating HOG features, which are known for their ability to capture shape and appearance information through gradient distributions.",
+    title: "Event-Based Histogram of Gradients for Lane Detection: Thesis",
+    description: "Vision Transformers have revolutionized the field of computer vision by applying the self-attention mechanism to image recognition tasks. This project enhances ViT's performance by incorporating HOG features, which capture shape and appearance information through gradient distributions.",
     image: "./images/1.png",
     link: "https://github.com/ganeshhgupta/HoG-ViT",
     tags: ['ML'],
   },
   {
-    title: "YouTube Video Querying Assistant : RAG, Langchain, Pinecone",
+    title: "YouTube Video Querying Assistant: RAG, LangChain, Pinecone",
     description: "Developed an interactive YouTube video query system using LangChain, leveraging OpenAI Embeddings to process video transcripts stored in a vector database. Improved search functionality with recursive querying and robust error handling for more accurate and efficient results.",
     image: "./images/yt-query.png",
     link: "https://github.com/ganeshhgupta/HoG-ViT",
     tags: ['Gen AI', 'Full Stack'],
   },
   {
-    title: "Community Detection in Social Networks : Big Data",
-    description: "Architected a Map-Reduce program to partition a directed graph into K clusters using multi-source BFS, optimizing proximity-based grouping through iterative propagation. Utilized Apache Spark SQL and RDDs to calculate neighbors and efficiently group nodes.",
+    title: "Community Detection in Social Networks: Big Data",
+    description: "Architected a Map-Reduce program to partition a directed graph into K clusters using multi-source BFS, optimizing proximity-based grouping through iterative propagation. Used Apache Spark SQL and RDDs to calculate neighbors and efficiently group nodes.",
     image: "./images/2.png",
     link: "https://github.com/ganeshhgupta/CCBD",
     tags: ['ML', 'Full Stack'],
   },
   {
-    title: "Caltech 256 Object Classifier : ResNet50 : UTA Datathon",
-    description: "This project built an image classifier using PyTorch and transfer learning with a pre-trained ResNet50 model. Key techniques included data augmentation, layer fine-tuning for task adaptation, and regularization to prevent overfitting. Few-shot learning was also implemented to improve classification performance for classes with limited data.",
+    title: "Caltech 256 Object Classifier: ResNet50",
+    description: "Built an image classifier using PyTorch and transfer learning with a pre-trained ResNet50 model. Key techniques included data augmentation, layer fine-tuning for task adaptation, and regularization to prevent overfitting, plus few-shot learning for classes with limited data.",
     image: "./images/3.png",
-    link: "https://portfolio.com",
+    link: "https://github.com/ganeshhgupta",
     tags: ['ML'],
   },
   {
     title: "Twitter Sentiment Analysis using BERT",
-    description: "This project uses the BERT model to analyze and classify sentiment in Twitter data. By fine-tuning BERT for natural language understanding, the system accurately detects positive, negative, or neutral sentiments, even in tweets with slang or informal language.",
+    description: "Fine-tuned BERT to analyze and classify sentiment in Twitter data, accurately detecting positive, negative, or neutral sentiment even in tweets with slang or informal language.",
     image: "./images/4.png",
     link: "https://github.com/ganeshhgupta/Twitter-Sentiment-Analysis",
     tags: ['ML', 'Gen AI'],
   },
   {
-    title: "Lane Detection System for Autonomous Driving : UNet, Yolo Panoptic",
-    description: "This project enhances lane detection in challenging conditions like low light and poor weather using UNet for semantic segmentation and Yolo Panoptic for object detection. The system accurately identifies lane markings, ensuring safer navigation in fog, rain, or nighttime driving.",
+    title: "Lane Detection System for Autonomous Driving: UNet, YOLO Panoptic",
+    description: "Enhances lane detection in challenging conditions like low light and poor weather using UNet for semantic segmentation and YOLO Panoptic for object detection, ensuring safer navigation in fog, rain, or nighttime driving.",
     image: "./images/5.png",
-    link: "https://weather-dashboard.com",
+    link: "https://github.com/ganeshhgupta",
     tags: ['ML'],
   },
   {
-    title: "Emotion Detection using Haar Cascades Classifier : OpenCV",
-    description: "This project uses Haar Cascades to detect emotions from facial expressions in real-time, identifying emotions like happiness, sadness, and anger. Suitable for applications like user experience monitoring and emotion-based AI interactions.",
-    image: "./images/6.png",
-    link: "https://blog-platform.com",
-    tags: ['ML'],
-  },
-  {
-    title: "Bitcoin Price Prediction : LSTM, 1D-CNN, N-Beats",
-    description: "This project predicts Bitcoin prices using models like LSTM, 1D-CNN, and N-BEATS, analyzing historical price data and factors like trading volume and market sentiment for accurate short-term predictions.",
+    title: "Bitcoin Price Prediction: LSTM, 1D-CNN, N-BEATS",
+    description: "Predicts Bitcoin prices using LSTM, 1D-CNN, and N-BEATS models, analyzing historical price data and factors like trading volume and market sentiment for short-term forecasts.",
     image: "./images/7.png",
-    link: "https://taskmanager.com",
+    link: "https://github.com/ganeshhgupta",
     tags: ['ML'],
   },
   {
-    title: "Employee Management Dashboard : Java, Spring, SQL",
-    description: "A web-based portal for managing employee data with secure login and full CRUD operations. Built with Java, Spring, and SQL, it enhances operational efficiency and boosts user engagement by 25%.",
-    image: "./images/8.png",
-    link: "https://chatapp.com",
-    tags: ['Full Stack'],
-  },
-  {
-    title: "Facebook vs Google AdWords A/B Testing and Conversion Analysis",
-    description: "Conducted data cleaning and analyzed click-to-conversion ratios, segmented data, and performed correlation, regression, and A/B testing with interactive visualizations to determine the more effective marketing platform.",
-    image: "./images/ab_test.png",
-    link: "https://github.com/ganeshhgupta/Facebook_vs_Adwords_AB_Testing",
-    tags: ['ML'],
-  },
-  {
-    title: "ETL Pipeline for Amazon Books : Apache Airflow",
+    title: "ETL Pipeline for Amazon Books: Apache Airflow",
     description: "Developed an Apache Airflow DAG to extract, transform, and load book data from Amazon into PostgreSQL, ensuring efficient data structuring and automation.",
     image: "./images/etl.png",
     link: "https://github.com/ganeshhgupta/Amazon-Books-ETL",
@@ -203,68 +175,44 @@ const allProjects = [
 ];
 
 // ─── Project Card ─────────────────────────────────────────────────────────────
-const ProjectCard = ({ project, expanded, onMobileToggle, mobileExpanded }) => {
-  const isMobile = useMediaQuery('(max-width:899px)');
-  const isOpen = isMobile ? mobileExpanded : expanded;
-
+const ProjectCard = ({ project, isOpen, onToggle }) => {
   return (
     <Card
       sx={{
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: expanded ? 10 : 3,
-        transition: 'box-shadow 0.3s ease',
-        cursor: isMobile ? 'pointer' : 'default',
+        cursor: 'pointer',
         overflow: 'hidden',
+        transition: 'border-color 0.2s ease',
+        borderColor: isOpen ? 'primary.main' : 'divider',
       }}
-      onClick={() => isMobile && onMobileToggle()}
+      onClick={onToggle}
     >
-      {/* Image — full image shown when expanded, cropped preview when collapsed */}
       <Box
-        sx={{
-          overflow: 'hidden',
-          flexShrink: 0,
-          height: isOpen ? 'auto' : 150,
-          transition: 'height 0.4s ease',
-        }}
+        component="a"
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(e) => e.stopPropagation()}
+        sx={{ display: 'block', height: 150, overflow: 'hidden' }}
       >
-        <Box
-          component="a"
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => e.stopPropagation()}
-          sx={{ display: 'block' }}
-        >
-          <CardMedia
-            component="img"
-            image={project.image}
-            alt={project.title}
-            sx={{
-              width: '100%',
-              height: isOpen ? 'auto' : 150,
-              objectFit: isOpen ? 'contain' : 'cover',
-              display: 'block',
-              transition: 'transform 0.4s ease',
-              transform: isOpen ? 'scale(1)' : 'scale(1)',
-            }}
-          />
-        </Box>
+        <CardMedia
+          component="img"
+          image={project.image}
+          alt={project.title}
+          sx={{ width: '100%', height: 150, objectFit: 'cover', display: 'block' }}
+        />
       </Box>
 
       <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: 1, pb: 1 }}>
-        {/* Chips */}
         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
           {project.wip && (
             <Chip
               label="Work in Progress"
               size="small"
-              sx={{
-                fontSize: '0.62rem', height: 18,
-                backgroundColor: '#FEF3C7', color: '#92400E',
-                fontWeight: 700, border: '1px solid #F59E0B',
-              }}
+              variant="outlined"
+              sx={{ fontSize: '0.62rem', height: 18, borderColor: 'divider', color: 'text.secondary' }}
             />
           )}
           {project.tags.map((tag) => (
@@ -272,52 +220,32 @@ const ProjectCard = ({ project, expanded, onMobileToggle, mobileExpanded }) => {
               key={tag}
               label={tag}
               size="small"
-              sx={{
-                fontSize: '0.65rem', height: 18,
-                backgroundColor: CATEGORY_COLORS[tag]?.bg,
-                color: CATEGORY_COLORS[tag]?.text,
-                fontWeight: 600,
-              }}
+              variant="outlined"
+              sx={{ fontSize: '0.65rem', height: 18, borderColor: 'divider', color: 'text.secondary' }}
             />
           ))}
         </Box>
 
-        {/* Title */}
-        <Typography
-          variant="h6"
-          sx={{
-            fontFamily: '"Raleway", serif',
-            fontSize: { xs: '0.92rem', sm: '0.97rem' },
-            fontWeight: 600,
-            lineHeight: 1.3,
-          }}
-        >
+        <Typography variant="h6" sx={{ fontSize: { xs: '0.92rem', sm: '0.97rem' }, lineHeight: 1.3 }}>
           {project.title}
         </Typography>
 
-        {/* Description */}
         <Collapse in={isOpen} collapsedSize={48}>
           <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.65, fontSize: '0.81rem' }}>
             {project.description}
           </Typography>
         </Collapse>
-      </CardContent>
 
-      {/* Mobile toggle */}
-      {isMobile && (
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end', px: 1, pb: 0.5 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
           <IconButton
             size="small"
-            onClick={(e) => { e.stopPropagation(); onMobileToggle(); }}
-            sx={{
-              transform: mobileExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
-              transition: 'transform 0.3s ease',
-            }}
+            onClick={(e) => { e.stopPropagation(); onToggle(); }}
+            sx={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease' }}
           >
             <ExpandMoreIcon fontSize="small" />
           </IconButton>
         </Box>
-      )}
+      </CardContent>
     </Card>
   );
 };
@@ -325,12 +253,10 @@ const ProjectCard = ({ project, expanded, onMobileToggle, mobileExpanded }) => {
 // ─── Main Component ───────────────────────────────────────────────────────────
 const Projects = () => {
   const [activeFilters, setActiveFilters] = useState([]);
-  const [hoveredIdx, setHoveredIdx] = useState(null);
-  const [mobileExpanded, setMobileExpanded] = useState({});
+  const [openIdx, setOpenIdx] = useState(null);
   const isDesktop = useMediaQuery('(min-width:900px)');
 
   const toggleFilter = (cat) => {
-    setHoveredIdx(null);
     setActiveFilters((prev) =>
       prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat]
     );
@@ -341,122 +267,66 @@ const Projects = () => {
       ? allProjects
       : allProjects.filter((p) => p.tags.some((t) => activeFilters.includes(t)));
 
-  // CSS Grid style for each item.
-  // Giving BOTH explicit gridColumn AND gridRow puts the item in placement step-1,
-  // so the browser reserves its 2×2 area BEFORE auto-placing neighbours.
-  // Left/center expand rightward; right column expands leftward (mirror).
-  const getGridStyle = (index) => {
-    if (!isDesktop || hoveredIdx !== index) return {};
-    const col = index % 3;
-    const row = Math.floor(index / 3) + 1; // 1-based CSS grid row
-    return {
-      gridColumn: col === 2 ? '2 / 4' : `${col + 1} / span 2`,
-      gridRow: `${row} / span 2`,
-      zIndex: 10,
-      position: 'relative',
-      alignSelf: 'stretch',
-    };
-  };
-
-  const toggleMobile = (title) => {
-    setMobileExpanded((prev) => ({ ...prev, [title]: !prev[title] }));
-  };
-
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.65, ease: 'easeOut' }}
-    >
-      <Box id="projects" sx={{ pt: { xs: 1, sm: 2 }, pb: { xs: 3, sm: 4 } }}>
-        <Typography
-          variant="h4"
-          sx={{ mb: 3, fontFamily: '"Raleway", serif', fontWeight: 400, textAlign: 'center' }}
-        >
-          Projects
-        </Typography>
+    <Box id="projects" sx={{ pt: { xs: 1, sm: 2 }, pb: { xs: 3, sm: 4 } }}>
+      <Typography variant="h4" sx={{ mb: 3, textAlign: 'center' }}>
+        Projects
+      </Typography>
 
-        {/* Filter Chips */}
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, justifyContent: 'center', mb: 3 }}>
-          <Chip
-            label="All"
-            onClick={() => { setHoveredIdx(null); setActiveFilters([]); }}
-            sx={{
-              fontWeight: 600,
-              backgroundColor: activeFilters.length === 0 ? '#1F2937' : 'transparent',
-              color: activeFilters.length === 0 ? '#fff' : 'inherit',
-              border: '1px solid #9CA3AF',
-              '&:hover': { backgroundColor: activeFilters.length === 0 ? '#374151' : '#F3F4F6' },
-            }}
-          />
-          {CATEGORIES.map((cat) => {
-            const active = activeFilters.includes(cat);
-            const colors = CATEGORY_COLORS[cat];
-            return (
-              <Chip
-                key={cat}
-                label={cat}
-                onClick={() => toggleFilter(cat)}
-                sx={{
-                  fontWeight: 600,
-                  backgroundColor: active ? colors.border : 'transparent',
-                  color: active ? '#fff' : colors.text,
-                  border: `1px solid ${colors.border}`,
-                  '&:hover': { backgroundColor: active ? colors.border : colors.bg },
-                }}
-              />
-            );
-          })}
-        </Box>
-
-        {/* CSS Grid + Framer Motion layout animations */}
-        <LayoutGroup>
-          <Box
-            sx={{
-              display: 'grid',
-              gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
-              gap: { xs: 2, sm: 3 },
-              alignItems: 'start',
-            }}
-          >
-            {filtered.map((project, index) => (
-              <motion.div
-                key={project.title}
-                layout
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                style={{
-                  ...getGridStyle(index),
-                  height: isDesktop && hoveredIdx === index ? '100%' : undefined,
-                }}
-                transition={{
-                  layout: { duration: 0.38, ease: [0.4, 0, 0.2, 1] },
-                  opacity: { duration: 0.5, ease: 'easeOut', delay: (index % 3) * 0.1 },
-                  y: { duration: 0.5, ease: 'easeOut', delay: (index % 3) * 0.1 },
-                }}
-                onHoverStart={() => isDesktop && setHoveredIdx(index)}
-                onHoverEnd={() => isDesktop && setHoveredIdx(null)}
-              >
-                <ProjectCard
-                  project={project}
-                  expanded={isDesktop && hoveredIdx === index}
-                  mobileExpanded={!!mobileExpanded[project.title]}
-                  onMobileToggle={() => toggleMobile(project.title)}
-                />
-              </motion.div>
-            ))}
-          </Box>
-        </LayoutGroup>
-
-        {filtered.length === 0 && (
-          <Typography color="text.secondary" sx={{ textAlign: 'center', mt: 4, fontStyle: 'italic' }}>
-            No projects match the selected filters.
-          </Typography>
-        )}
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, justifyContent: 'center', mb: 3 }}>
+        <Chip
+          label="All"
+          onClick={() => setActiveFilters([])}
+          variant={activeFilters.length === 0 ? 'filled' : 'outlined'}
+          color={activeFilters.length === 0 ? 'primary' : 'default'}
+          sx={{ fontWeight: 600, borderColor: 'divider' }}
+        />
+        {CATEGORIES.map((cat) => {
+          const active = activeFilters.includes(cat);
+          return (
+            <Chip
+              key={cat}
+              label={cat}
+              onClick={() => toggleFilter(cat)}
+              variant={active ? 'filled' : 'outlined'}
+              color={active ? 'primary' : 'default'}
+              sx={{ fontWeight: 600, borderColor: 'divider' }}
+            />
+          );
+        })}
       </Box>
-    </motion.div>
+
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
+          gap: { xs: 2, sm: 3 },
+          alignItems: 'start',
+        }}
+      >
+        {filtered.map((project, index) => (
+          <motion.div
+            key={project.title}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.45, ease: 'easeOut', delay: isDesktop ? (index % 3) * 0.06 : 0 }}
+          >
+            <ProjectCard
+              project={project}
+              isOpen={openIdx === index}
+              onToggle={() => setOpenIdx(openIdx === index ? null : index)}
+            />
+          </motion.div>
+        ))}
+      </Box>
+
+      {filtered.length === 0 && (
+        <Typography color="text.secondary" sx={{ textAlign: 'center', mt: 4, fontStyle: 'italic' }}>
+          No projects match the selected filters.
+        </Typography>
+      )}
+    </Box>
   );
 };
 

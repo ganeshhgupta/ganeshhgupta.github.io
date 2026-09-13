@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography, Box, IconButton, Tooltip } from '@mui/material';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
-const Footer = ({nightMode}) => {
+const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
@@ -12,12 +12,11 @@ const Footer = ({nightMode}) => {
   return (
     <Box
       sx={{
-        backgroundColor: nightMode ? "text.200" : 'text.100',
-        color: nightMode ? "text.200" : 'text.100',
-        padding: '20px 0',
+        backgroundColor: 'background.paper',
+        borderTop: '1px solid',
+        borderColor: 'divider',
+        padding: '24px 0',
         textAlign: 'center',
-        position: 'relative',
-        bottom: 0,
         width: '100%',
       }}
     >
@@ -26,21 +25,18 @@ const Footer = ({nightMode}) => {
           <IconButton
             onClick={scrollToTop}
             sx={{
-              backgroundColor: '#333',
-              color: '#fff', // White icon color
-              borderRadius: '50%', // Circular shape
-              padding: '5px', // Space around icon
-              '&:hover': {
-                backgroundColor: '#0056b3',
-              },
-              marginBottom: 2,
+              border: '1px solid',
+              borderColor: 'divider',
+              color: 'text.secondary',
+              marginBottom: 1.5,
+              '&:hover': { color: 'primary.main', borderColor: 'primary.main' },
             }}
           >
-            <ArrowUpwardIcon fontSize="medium" />
+            <ArrowUpwardIcon fontSize="small" />
           </IconButton>
         </Tooltip>
-        <Typography variant="body2">
-          <span>© {currentYear} Ganesh Gupta. All rights reserved.</span>
+        <Typography variant="body2" color="text.secondary">
+          © {currentYear} Ganesh Gupta. All rights reserved.
         </Typography>
       </Container>
     </Box>
