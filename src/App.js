@@ -6,8 +6,6 @@ import Projects from './components/Projects';
 import Research from './components/Research';
 import Education from './components/Education';
 import About from './components/About';
-import Particle from './components/particle';
-import CenteredName from './components/CenteredName';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Skills from './components/Skills';
@@ -38,16 +36,16 @@ const getTheme = (nightMode) =>
         shape: { borderRadius: 10 },
         typography: {
             fontFamily: '"Inter", -apple-system, "Segoe UI", sans-serif',
-            h1: { fontFamily: '"Raleway", sans-serif', fontWeight: 600, letterSpacing: '-0.01em' },
+            h1: { fontFamily: '"Raleway", sans-serif', fontWeight: 700, letterSpacing: '-0.01em' },
             h2: { fontFamily: '"Raleway", sans-serif', fontWeight: 600, letterSpacing: '-0.01em' },
             h3: { fontFamily: '"Raleway", sans-serif', fontWeight: 600 },
-            h4: { fontFamily: '"Raleway", sans-serif', fontWeight: 600, fontSize: '1.7rem', letterSpacing: '0.01em' },
+            h4: { fontFamily: '"Raleway", sans-serif', fontWeight: 600, fontSize: '1.6rem' },
             h5: { fontFamily: '"Raleway", sans-serif', fontWeight: 600, fontSize: '1.15rem' },
             h6: { fontFamily: '"Raleway", sans-serif', fontWeight: 600, fontSize: '1.02rem' },
             body1: { fontSize: '1rem', lineHeight: 1.7 },
             body2: { fontSize: '0.9rem', lineHeight: 1.65 },
             button: { textTransform: 'none', fontWeight: 600 },
-            overline: { fontFamily: '"JetBrains Mono", monospace', letterSpacing: '0.08em' },
+            overline: { fontFamily: '"JetBrains Mono", monospace', letterSpacing: '0.08em', fontSize: '0.72rem' },
         },
         components: {
             MuiCard: {
@@ -69,7 +67,7 @@ const getTheme = (nightMode) =>
     });
 
 const App = () => {
-    const [nightMode, setNightMode] = useState(false);
+    const [nightMode, setNightMode] = useState(true);
 
     const theme = getTheme(nightMode);
 
@@ -81,52 +79,25 @@ const App = () => {
 
             <Navbar toggleNightMode={toggleNightMode} nightMode={nightMode} />
 
-            <Particle nightMode={nightMode} />
-
-            <CenteredName nightMode={nightMode} />
-
             <Container
-                maxWidth="xl"
+                maxWidth="md"
                 sx={{
-                    position: 'relative',
-                    zIndex: 1,
-                    px: { xs: 2, sm: 4, md: 8, lg: 16 },
+                    px: { xs: 2.5, sm: 4 },
+                    pt: '64px', // clears the fixed navbar
                 }}
             >
-                <Box id="about" sx={{ mb: 2 }}>
-                    <About nightMode={nightMode} />
-                </Box>
+                <About />
 
-                <Box id="projects" sx={{ mb: 4 }}>
-                    <Projects />
-                </Box>
-
-                <Box id="skills" sx={{ mb: 4 }}>
-                    <Skills nightMode={nightMode} />
-                </Box>
-
-                <Box id="experience" sx={{ mb: 4 }}>
-                    <Experience nightMode={nightMode} />
-                </Box>
-
-                <Box id="research" sx={{ mb: 4 }}>
-                    <Research />
-                </Box>
-
-                <Box id="education" sx={{ mb: 4 }}>
-                    <Education nightMode={nightMode} />
-                </Box>
-
-                <Box id="certifications" sx={{ mb: 4 }}>
-                    <Certifications />
-                </Box>
-
-                <Box id="contact" sx={{ mb: 4 }}>
-                    <Contact />
-                </Box>
+                <Box sx={{ mb: 9 }}><Projects /></Box>
+                <Box sx={{ mb: 9 }}><Skills /></Box>
+                <Box sx={{ mb: 9 }}><Experience /></Box>
+                <Box sx={{ mb: 9 }}><Research /></Box>
+                <Box sx={{ mb: 9 }}><Education /></Box>
+                <Box sx={{ mb: 9 }}><Certifications /></Box>
+                <Box sx={{ mb: 6 }}><Contact /></Box>
             </Container>
 
-            <Footer nightMode={nightMode} />
+            <Footer />
         </ThemeProvider>
     );
 };

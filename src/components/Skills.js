@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Chip } from '@mui/material';
+import SectionHeading from './SectionHeading';
 
 // Curated, tiered, text-based — no hotlinked third-party icons, no consumer
 // chat-app logos. Core is what's used daily in production; Also worked with
@@ -19,12 +20,10 @@ const ALSO = [
 
 const Skills = () => {
   return (
-    <Box sx={{ padding: { xs: '20px 0', sm: '30px 0' } }}>
-      <Typography variant="h4" sx={{ marginBottom: 4, textAlign: 'center' }}>
-        Skills
-      </Typography>
+    <Box id="skills">
+      <SectionHeading eyebrow="TOOLBOX" title="Skills" />
 
-      <Box sx={{ maxWidth: 780, margin: '0 auto' }}>
+      <Box>
         {Object.entries(CORE).map(([category, items]) => (
           <Box key={category} sx={{ mb: 3.5 }}>
             <Typography

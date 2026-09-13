@@ -1,59 +1,142 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Box, Typography } from '@mui/material';
 
-const HEADER = "I build AI systems that run in production — agentic pipelines, LLM orchestration, distributed backends, and the infrastructure that holds it all together.";
+const ROLE_TAGS = "SOFTWARE ENGINEER · AI SYSTEMS · INFRASTRUCTURE";
 
-const PARAGRAPHS = [
-  "At Oracle I build a multi-agent AI platform using OpenAI's Agents SDK and MCP tool-use, handling millions of daily transactions at 99%+ uptime. At QureAI I own the ML infrastructure behind our production inference stack, cutting p99 latency from 420ms to 140ms and rebuilding our RAG pipeline to take retrieval recall from 61% to 89%. Before that, four years at Nomura architecting financial data systems for 1M+ users at 99.9% uptime. I hold a Master's in Computer Science from UT Arlington, where I also taught a graduate ML course, and my research covered multi-agent reinforcement learning and Vision Transformer models for real-time benchmarks.",
-  "I like to tinker. I've built a natural language interface that decomposes questions into multi-step database queries, an ML auto-retraining pipeline that triggers itself when models drift, and an agentic graph system that tries to map how a person thinks. Right now I'm deep in something that keeps me up at night: whether present-day LLMs are actually capable of original thought.",
+const HEADLINE = "Production AI systems, built to hold under load.";
+
+const SUBTEXT = "I approach infrastructure the way I approach a hard bug: trace it to the root, not the symptom. I build the agentic pipelines, model-serving layers, and distributed backends that run underneath AI products, at the scale where the easy version stops working.";
+
+const STATS = [
+  { value: "5+", label: "YEARS BUILDING" },
+  { value: "3", label: "PRODUCTION SYSTEMS" },
+  { value: "99.9%", label: "UPTIME AT SCALE" },
+  { value: "140ms", label: "P99 LATENCY, QUREAI" },
 ];
 
-function About({ nightMode }) {
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 600;
-  const primaryColor = nightMode ? '#EDEEF2' : '#14171F';
-  const secondaryColor = nightMode ? '#9AA0AC' : '#565B66';
+function useClock() {
+  const [time, setTime] = useState(new Date());
+  useEffect(() => {
+    const id = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  return time;
+}
+
+function About() {
+  const time = useClock();
+  const timeStr = time.toLocaleTimeString('en-US', { hour12: false });
 
   return (
-    <div
-      style={{
-        paddingTop: isMobile ? '30vh' : '34vh',
-        paddingBottom: '40px',
-        minHeight: '70vh',
-        maxWidth: '760px',
-        margin: '0 auto',
-        boxSizing: 'border-box',
-      }}
-    >
-      <p
-        style={{
-          fontFamily: '"Raleway", sans-serif',
-          fontWeight: 600,
-          fontSize: isMobile ? '1.05rem' : '1.2rem',
-          lineHeight: 1.6,
-          textAlign: 'left',
-          color: primaryColor,
-          margin: '0 0 1.5rem 0',
+    <Box id="about" sx={{ pt: { xs: 7, sm: 11 }, pb: { xs: 5, sm: 7 } }}>
+      <Typography
+        sx={{
+          fontFamily: '"JetBrains Mono", monospace',
+          fontSize: '0.76rem',
+          color: 'text.secondary',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 1,
+          mb: 3.5,
         }}
       >
-        {HEADER}
-      </p>
+        <Box component="span" sx={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#22C55E', display: 'inline-block' }} />
+        Dallas, TX &middot; {timeStr}
+      </Typography>
 
-      {PARAGRAPHS.map((p, i) => (
-        <p
-          key={i}
-          style={{
-            fontFamily: '"Inter", sans-serif',
-            fontWeight: 400,
-            fontSize: isMobile ? '0.95rem' : '1rem',
-            lineHeight: 1.75,
-            textAlign: 'left',
-            color: secondaryColor,
-            margin: '0 0 1.25rem 0',
-          }}
-        >
-          {p}
-        </p>
-      ))}
-    </div>
+      <Typography
+        sx={{
+          fontFamily: '"JetBrains Mono", monospace',
+          fontSize: '0.72rem',
+          letterSpacing: '0.08em',
+          color: 'primary.main',
+          mb: 2,
+        }}
+      >
+        {ROLE_TAGS}
+      </Typography>
+
+      <Typography
+        variant="h1"
+        sx={{
+          fontSize: { xs: '2.3rem', sm: '3.4rem' },
+          lineHeight: 1.1,
+          mb: 3,
+          maxWidth: '780px',
+        }}
+      >
+        {HEADLINE}
+      </Typography>
+
+      <Typography color="text.secondary" sx={{ maxWidth: '640px', fontSize: { xs: '0.95rem', sm: '1.02rem' }, mb: 4 }}>
+        {SUBTEXT}
+      </Typography>
+
+      <Box sx={{ display: 'flex', gap: 3, mb: { xs: 5, sm: 7 } }}>
+        {[
+          { label: 'View work', to: 'experience' },
+          { label: 'Get in touch', to: 'contact' },
+        ].map((link, i) => (
+          <Box
+            key={link.to}
+            component="a"
+            href={`#${link.to}`}
+            sx={{
+              fontFamily: '"Inter", sans-serif',
+              fontWeight: 600,
+              fontSize: '0.92rem',
+              color: i === 0 ? 'primary.main' : 'text.primary',
+              textDecoration: 'none',
+              borderBottom: '1px solid',
+              borderColor: i === 0 ? 'primary.main' : 'divider',
+              paddingBottom: '2px',
+            }}
+          >
+            {link.label}
+          </Box>
+        ))}
+      </Box>
+
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(4, 1fr)' },
+          gap: 3,
+          mb: { xs: 5, sm: 7 },
+        }}
+      >
+        {STATS.map((s) => (
+          <Box key={s.label}>
+            <Typography sx={{ fontFamily: '"Raleway", sans-serif', fontWeight: 700, fontSize: '1.7rem', color: 'text.primary' }}>
+              {s.value}
+            </Typography>
+            <Typography sx={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '0.68rem', letterSpacing: '0.05em', color: 'text.secondary' }}>
+              {s.label}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
+
+      <Box>
+        <Typography sx={{ fontFamily: '"JetBrains Mono", monospace', fontSize: '0.7rem', letterSpacing: '0.08em', color: 'text.secondary', mb: 1.5 }}>
+          CURRENTLY
+        </Typography>
+        <Box sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 2, p: 2.5 }}>
+          <Typography sx={{ fontSize: '0.92rem', color: 'text.primary', mb: 1 }}>
+            <Box component="span" sx={{ color: 'primary.main', fontWeight: 600 }}>Oracle</Box> &middot; Multi-agent AI platform on OpenAI's Agents SDK &amp; MCP
+          </Typography>
+          <Typography sx={{ fontSize: '0.92rem', color: 'text.primary' }}>
+            <Box component="span" sx={{ color: 'primary.main', fontWeight: 600 }}>QureAI</Box> &middot; ML infrastructure for production inference
+          </Typography>
+        </Box>
+      </Box>
+
+      <Box sx={{ mt: { xs: 7, sm: 9 }, maxWidth: '720px' }}>
+        <Typography color="text.secondary" sx={{ fontSize: { xs: '0.92rem', sm: '0.98rem' } }}>
+          Before Oracle and QureAI, four years at Nomura architecting financial data systems for 1M+ users. I hold a Master's in Computer Science from UT Arlington, where I also taught a graduate ML course, and my research covered multi-agent reinforcement learning and Vision Transformer models for real-time benchmarks. Outside of work I tend to build things nobody asked for: a natural language interface that decomposes questions into multi-step database queries, an ML pipeline that retrains itself when it drifts, and lately, a running argument with myself about whether today's LLMs are capable of original thought.
+        </Typography>
+      </Box>
+    </Box>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography, Grid, Box, CardMedia, CardActionArea } from '@mui/material';
+import SectionHeading from './SectionHeading';
 
 const certifications = [
     {
@@ -48,11 +49,9 @@ const certifications = [
 
 const Certifications = () => {
     return (
-        <Box id="certifications" sx={{ padding: { xs: 3, sm: 5 } }}>
-            <Typography variant="h4" sx={{ marginBottom: 3, textAlign: 'center' }}>
-                Certifications
-            </Typography>
-            <Grid container spacing={3} justifyContent="center">
+        <Box id="certifications">
+            <SectionHeading eyebrow="CREDENTIALS" title="Certifications" />
+            <Grid container spacing={3}>
                 {certifications.map((item, index) => (
                     <Grid item xs={12} sm={6} md={4} key={index}>
                         <Card sx={{ width: '100%', maxWidth: 360, height: '100%' }}>

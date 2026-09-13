@@ -5,6 +5,7 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { motion } from 'framer-motion';
+import SectionHeading from './SectionHeading';
 
 const CATEGORIES = ['Agentic', 'Gen AI', 'ML', 'Full Stack'];
 
@@ -268,12 +269,10 @@ const Projects = () => {
       : allProjects.filter((p) => p.tags.some((t) => activeFilters.includes(t)));
 
   return (
-    <Box id="projects" sx={{ pt: { xs: 1, sm: 2 }, pb: { xs: 3, sm: 4 } }}>
-      <Typography variant="h4" sx={{ mb: 3, textAlign: 'center' }}>
-        Projects
-      </Typography>
+    <Box id="projects">
+      <SectionHeading eyebrow="SELECTED WORK" title="Projects" />
 
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, justifyContent: 'center', mb: 3 }}>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 4 }}>
         <Chip
           label="All"
           onClick={() => setActiveFilters([])}
